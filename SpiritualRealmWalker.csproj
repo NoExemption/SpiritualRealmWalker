@@ -7,13 +7,27 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <GameDir Condition="'$(GameDir)' == ''">D:\SteamLibrary\steamapps\common\Slay the Spire 2</GameDir>
+    <GodotExe Condition="'$(GodotExe)' == ''">D:\Godot_v4.5.1-stable_mono_win64\Godot_v4.5.1-stable_mono_win64_console.exe</GodotExe>
+    <ModOutputDir>$(GameDir)\mods\SpiritualRealmWalker</ModOutputDir>
+    <ModPckPath>$(ModOutputDir)\SpiritualRealmWalker.pck</ModPckPath>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="STS2.RitsuLib" Version="0.6.2" />
     <Reference Include="sts2">
       <HintPath>$(GameDir)\data_sts2_windows_x86_64\sts2.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <None Include="SpiritualRealmWalker.json" CopyToOutputDirectory="PreserveNewest" />
+    <AdditionalFiles Include="SpiritualRealmWalker\localization\**\*.json" />
   </ItemGroup>
+
+  <Target Name="DeployMod" AfterTargets="Build" Condition="'$(DeployMod)' == 'true'">
+    <Error Condition="!Exists('$(GodotExe)')" Text="Godot 4.5.1 .NET executable was not found at $(GodotExe)." />
+    <MakeDir Directories="$(ModOutputDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModOutputDir)" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\SpiritualRealmWalker.json" DestinationFolder="$(ModOutputDir)" />
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)"
+          Command="&quot;$(GodotExe)&quot; --headless --path &quot;$(MSBuildProjectDirectory)&quot; --export-pack &quot;Windows Desktop&quot; &quot;$(ModPckPath)&quot;" />
+  </Target>
 </Project>
 

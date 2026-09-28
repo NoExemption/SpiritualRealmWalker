@@ -1,12 +1,17 @@
 {
   "id": "SpiritualRealmWalker",
+  "pck_name": "SpiritualRealmWalker",
   "name": "灵境行者",
-  "author": "",
-  "description": "灵境行者 Mod 开发骨架，目前仅验证初始化，不包含角色或卡牌。",
+  "author": "NoExemption",
+  "description": "以《灵境行者》为主题的角色 Mod。首名角色为夜游神元始天尊。",
   "version": "0.1.0",
   "min_game_version": "0.111.0",
-  "has_pck": false,
+  "has_pck": true,
   "has_dll": true,
-  "dependencies": [],
-  "affects_gameplay": false
+  "dependencies": [
+    {
+      "id": "STS2-RitsuLib"
+    }
+  ],
+  "affects_gameplay": true
 }

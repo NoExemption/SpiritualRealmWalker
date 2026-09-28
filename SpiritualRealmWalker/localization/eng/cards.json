@@ -1,0 +1,14 @@
+{
+  "SPIRITUAL_REALM_WALKER_CARD_NIGHT_STRIKE.title": "Night Strike",
+  "SPIRITUAL_REALM_WALKER_CARD_NIGHT_STRIKE.description": "Deal {Damage:diff()} damage.",
+  "SPIRITUAL_REALM_WALKER_CARD_NIGHT_STRIKE.smartDescription": "Deal {Damage:diff()} damage.",
+  "SPIRITUAL_REALM_WALKER_CARD_SHADOW_GUARD.title": "Shadow Guard",
+  "SPIRITUAL_REALM_WALKER_CARD_SHADOW_GUARD.description": "Gain {Block:diff()} Block.",
+  "SPIRITUAL_REALM_WALKER_CARD_SHADOW_GUARD.smartDescription": "Gain {Block:diff()} Block.",
+  "SPIRITUAL_REALM_WALKER_CARD_NIGHT_TRAVEL.title": "Night Travel",
+  "SPIRITUAL_REALM_WALKER_CARD_NIGHT_TRAVEL.description": "Gain 1 Intangible.",
+  "SPIRITUAL_REALM_WALKER_CARD_NIGHT_TRAVEL.smartDescription": "Gain 1 Intangible.",
+  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_DEVOUR.title": "Spirit Devour",
+  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_DEVOUR.description": "Deal {Damage:diff()} damage. If this damage kills the target, heal 3 HP, gain 1 Lunar Energy, and add a Dazed to your discard pile. Otherwise, apply 1 Weak.",
+  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_DEVOUR.smartDescription": "Deal {Damage:diff()} damage. If this damage kills the target, heal 3 HP, gain 1 Lunar Energy, and add a Dazed to your discard pile. Otherwise, apply 1 Weak."
+}

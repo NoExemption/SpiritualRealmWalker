@@ -1,145 +1,144 @@
 # 灵境行者 Mod（SpiritualRealmWalker）
 
-本文件是项目的学习说明与进度记录。每次完成项目任务，同步更新文件用途、操作步骤、验证结果和待办；只记录实际完成的内容。
+以小说《灵境行者》为主题制作的《杀戮尖塔 2》角色 Mod。首名角色为“元始天尊”，职业固定为“夜游神”。
 
-## 1. 当前阶段
+当前项目已编写并部署第一版夜游神机制，通过 Release 编译与成长规则检查，待游戏内验收。当前有效的机制与卡牌方案见 [DESIGN.md](DESIGN.md)，逐次开发过程、文件变动和验证证据记录在 [DEVLOG.md](DEVLOG.md)。
 
-- 已创建正式 Godot C# 项目骨架，Mod ID 与程序集名称统一为 SpiritualRealmWalker。
-- 入口目前只输出初始化日志，尚未添加角色、卡牌、美术、BaseLib 或 PCK 资源包。
-- 已使用 .NET SDK 10.0.401 编译：零警告、零错误。
-- 已使用 Godot 4.5.1 .NET 无界面编辑器导入项目：成功退出。
-- 正式项目已部署；2026-09-28 通过 Steam 启动游戏，日志确认 ModEntry.Initialize 执行及初始化完成。
-- 已初始化本地 Git 仓库，初始分支为 main；尚无提交、未暂存文件、未配置远程仓库。
+## 当前功能
 
-## 2. 本机路径与开发工具
+- 可选角色：元始天尊／夜游神。
+- 初始属性：75 点生命、99 金币。
+- 独立内容池：夜游神卡牌池、遗物池、药水池。
+- 初始牌组：4 张“夜袭”、4 张“影护”、1 张“夜游”和 1 张“噬灵”。
+- 初始遗物：“角色卡”，显示等级、经验、自愈量及试炼档位；内部保留 NightToken ID。
+- 成长：普通胜利30经验、精英50经验，累计300封顶；战前恢复等级＋2生命。
+- 第一幕试炼：不足3级时强化主敌人生命与力量，胜利补足至3级。
+- 本地化：简体中文及英文回退文本。
+- 占位资源：角色视觉暂时复用铁甲战士，攻击特效暂用游戏通用斩击，卡牌与遗物尚无正式图片。
 
-| 项目 | 路径或版本 | 用途 |
-|---|---|---|
-| 源码目录 | D:\Code\SpiritualRealmWalker | 编辑与编译正式项目 |
-| Godot 编辑器 | D:\Godot_v4.5.1-stable_mono_win64 | 管理场景、图片、动画和资源导出 |
-| Godot 版本 | 4.5.1.stable.mono.official.f62fdbde1 | 支持 C# 的 .NET 版本 |
-| .NET SDK | 10.0.401 | 将 C# 编译为 DLL；本项目目标仍为 net9.0 |
-| 游戏目录 | D:\SteamLibrary\steamapps\common\Slay the Spire 2 | 提供程序集引用；已检查版本为 v0.111.0 |
-| 部署目录 | 游戏目录下的 mods\SpiritualRealmWalker | 已放置 DLL 和 JSON，并验证游戏初始化成功 |
+骨架版本的导出、注册、本地化和实际开局已经验证。新机制编译为0警告、0错误，32项成长规则检查及本地化检查通过；现已导出 PCK 并部署，DLL与清单的 SHA256 和源产物一致。新机制的游戏行为、读档和联机尚待实测。
 
-以上为本次验证时的环境，工具或游戏升级后需要重新核实。
+## 开发环境
 
-## 3. 文件与目录说明
+| 项目 | 路径或版本 |
+|---|---|
+| 源码目录 | `D:\Code\SpiritualRealmWalker` |
+| 游戏目录 | `D:\SteamLibrary\steamapps\common\Slay the Spire 2` |
+| 游戏版本 | `v0.111.0` public-beta |
+| Mod 部署目录 | `D:\SteamLibrary\steamapps\common\Slay the Spire 2\mods\SpiritualRealmWalker` |
+| Godot | `D:\Godot_v4.5.1-stable_mono_win64`，4.5.1 Mono |
+| .NET SDK | 10.0.401；项目目标框架为 `net9.0` |
+| RitsuLib | 0.6.2，运行时位于游戏目录的 `mods\STS2-RitsuLib` |
 
-以下路径均相对于源码目录。
+这些信息是当前本机环境快照。升级游戏、Godot 或 RitsuLib 后需要重新验证兼容性。
 
-| 文件或目录 | 来源 | 用途与维护方式 |
-|---|---|---|
-| project.godot | 手动创建 | Godot 项目入口，定义名称、C# 支持、程序集名和 Mobile 渲染器；在 Godot 中导入此文件 |
-| SpiritualRealmWalker.csproj | 手动创建 | C# 项目配置；使用 Godot.NET.Sdk/4.5.1，目标为 net9.0，引用游戏的 sts2.dll；游戏引用不复制到编译输出 |
-| ModEntry.cs | 手动创建 | Mod 入口；游戏通过 ModInitializer 特性找到 Initialize 方法，目前调用 GD.Print 输出初始化标记 |
-| SpiritualRealmWalker.json | 手动创建 | Mod 清单；定义 ID、显示名称、版本、依赖、是否有 DLL/PCK、是否影响玩法；作者字段暂为空 |
-| .gitignore | 手动创建 | 规定以后提交 Git 时忽略 .godot、bin、obj 和常见编辑器缓存；它本身不会创建仓库或删除文件 |
-| .git/ | Git 初始化生成 | 本地版本库元数据；不要手动编辑。初始化不等于已保存源码版本，首次提交后才形成可回溯快照 |
-| README.md | 手动维护 | 项目说明、文件用途、编译部署流程、验证状态和变更记录 |
-| ModEntry.cs.uid | Godot 自动生成 | 脚本稳定标识；应保留，使用版本控制时随源码提交，通常无需手改 |
-| .godot/ | Godot 与编译工具自动生成 | 编辑器缓存、导入数据与 C# 编译中间文件；不手动编辑，不提交版本库 |
-| .godot/mono/temp/bin/Release/SpiritualRealmWalker.dll | 编译生成 | 实际由游戏加载的代码程序集；修改 C# 后重新编译生成，不能直接编辑 |
-| .godot/mono/temp/bin/Release/SpiritualRealmWalker.json | 编译复制 | 来自源码目录的清单副本；修改清单应改源码文件，再编译 |
+## 项目结构
 
-自动生成目录内部可能新增缓存文件，不逐个维护清单；记录其类别和作用即可。
+```text
+SpiritualRealmWalker/
+├─ Cards/                         卡牌代码
+│  ├─ NightStrike.cs              初始攻击牌“夜袭”
+│  ├─ ShadowGuard.cs              初始技能牌“影护”
+│  ├─ NightTravel.cs              夜游：无实体、保留、消耗
+│  └─ SpiritDevour.cs             噬灵：击杀治疗、回能与晕眩，否则虚弱
+├─ Characters/                    角色与职业内容池
+│  ├─ YuanshiTianzunCharacter.cs  “元始天尊”角色模型
+│  ├─ NightWandererCardPool.cs     夜游神卡牌池
+│  ├─ NightWandererRelicPool.cs    夜游神遗物池
+│  └─ NightWandererPotionPool.cs   夜游神药水池
+├─ Relics/
+│  └─ NightToken.cs               角色卡、存档、战前恢复及试炼钩子
+├─ Progression/NightWandererProgression.cs  等级、经验封顶和试炼分档
+├─ Tests/Verify-Progression.ps1    成长边界与双语文本检查
+├─ SpiritualRealmWalker/
+│  └─ localization/
+│     ├─ zhs/                      简体中文文本
+│     └─ eng/                      英文回退文本
+├─ ModEntry.cs                     Mod 初始化入口与 RitsuLib 程序集注册
+├─ SpiritualRealmWalker.json       Mod 清单及运行时依赖
+├─ SpiritualRealmWalker.csproj     C# 引用、编译和部署配置
+├─ SpiritualRealmWalker.sln        Godot Mono 所需解决方案
+├─ project.godot                   Godot 项目入口
+├─ export_presets.cfg              PCK 导出配置
+├─ README.md                       项目入口与使用说明
+├─ DESIGN.md                       当前有效的机制、数值与卡牌设计
+└─ DEVLOG.md                       开发日志与逐次文件变动
+```
 
-## 4. 从源码到游戏的流程
+`.godot/` 是 Godot 和编译工具生成的缓存及中间产物，由 `.gitignore` 排除，不应手动维护。`灵境行者.txt` 是原作资料，只按当前设计问题分段检索，不整本读取，也不作为程序资源处理。
 
-1. 修改 C# 逻辑、项目配置或 Mod 清单。
-2. .NET SDK 按 csproj 的配置编译，生成 DLL 并复制清单。
-3. 后续加入图片、场景等内容时，由 Godot 导入并导出 PCK 资源包。
-4. 将需要的产物部署到游戏 mods\SpiritualRealmWalker。
-5. 通过 Steam 启动游戏，游戏读取清单、加载程序集并执行 ModEntry.Initialize。
-6. 检查日志确认入口实际执行；只看到 Mod 名称不等于加载成功。
+## 构建
 
-## 5. 打开与编译
-
-在 Godot 项目管理器中选择“导入”，打开本目录的 project.godot。
-这是由游戏加载的 Mod，不是独立游戏，暂不设置主场景，也不使用编辑器的运行按钮验证 Mod。
-
-在 PowerShell 中编译：
+只验证 C# 编译：
 
 ```powershell
 Set-Location 'D:\Code\SpiritualRealmWalker'
 dotnet build .\SpiritualRealmWalker.csproj -c Release
 ```
 
-当前实际输出目录为 .godot\mono\temp\bin\Release；未来以编译输出显示的路径为准。
-若游戏位置变化，可以覆盖 GameDir：
+编译并将 DLL、清单和 PCK 部署至游戏目录：
+
+```powershell
+Set-Location 'D:\Code\SpiritualRealmWalker'
+dotnet build .\SpiritualRealmWalker.csproj -c Release -p:DeployMod=true
+```
+
+若游戏安装位置改变，可以临时覆盖路径：
 
 ```powershell
 dotnet build .\SpiritualRealmWalker.csproj -c Release -p:GameDir="新的游戏目录"
 ```
 
-## 6. 部署与加载验证（已完成首次验证）
+部署前应关闭游戏，避免正在加载的 DLL 阻止覆盖。Godot 中可通过项目管理器导入 `project.godot`；该项目是由游戏加载的 Mod，没有独立主场景，不使用 Godot 的运行按钮验证。
 
-将编译输出中的 SpiritualRealmWalker.dll 和 SpiritualRealmWalker.json 放入游戏目录的 mods\SpiritualRealmWalker，然后通过 Steam 启动游戏。
-当前没有自定义资源，所以清单的 has_pck 为 false；新增图片或场景后，再配置资源导出并将其改为 true。
+## 加载与验证
 
-日志位置：%APPDATA%\SlayTheSpire2\logs\godot.log。
-本次已观察到的入口标记：
+游戏加载的三个文件位于 `mods\SpiritualRealmWalker`：
 
-```text
-[SpiritualRealmWalker] Initialized v0.1.0
-```
+- `SpiritualRealmWalker.dll`：C# 逻辑。
+- `SpiritualRealmWalker.json`：Mod 清单。
+- `SpiritualRealmWalker.pck`：本地化及后续 Godot 资源。
 
-本次日志还确认了游戏自身的初始化完成记录：
+运行日志位于：
 
 ```text
-[INFO] Finished mod initialization for '灵境行者' (SpiritualRealmWalker).
+%APPDATA%\SlayTheSpire2\logs\godot.log
 ```
 
-已对部署的 DLL、JSON 与编译产物逐一比较 SHA256，完全一致。此次验证仅证明空 Mod 入口可加载，不代表角色、卡牌或战斗功能已经实现。
+有效验证应同时包括：
 
-## 7. 变更记录
+1. 日志出现 `[SpiritualRealmWalker] Initialized v0.1.0`。
+2. RitsuLib 报告 SpiritualRealmWalker 的自动注册全部成功。
+3. 中英文 `cards.json`、`characters.json`、`relics.json` 完成合并。
+4. 游戏中能选择元始天尊并以该角色开始一局。
+5. 新局包含4夜袭、4影护、1夜游、1噬灵和“角色卡”。
 
-### 2026-09-28：创建正式项目骨架
+以上前四项在此前骨架版本已验证，新机制版本需要重新验收。缺少自定义卡图和遗物图标产生的占位资源警告是当前已知限制。
 
-- 新增 project.godot、SpiritualRealmWalker.csproj、ModEntry.cs、SpiritualRealmWalker.json、.gitignore、README.md。
-- 编译与导入自动生成 .godot/ 和 ModEntry.cs.uid。
-- 编译零警告、零错误；Godot 导入成功。
-- 未部署到游戏，未修改游戏文件，未删除文件。
+编译后执行自动检查：
 
-### 2026-09-28：补充学习文档
+```powershell
+pwsh -NoProfile -File Tests/Verify-Progression.ps1
+```
 
-- 修改 README.md：补充逐文件说明、自动生成内容、环境路径、开发流程、验证状态和变更记录。
-- 本次仅更新文档；未修改功能代码，未新增或删除项目文件。
-- 验证方式：核对当前文件清单并回读文档；不重复运行与文档修改无关的编译测试。
+新机制实机检查：
 
-### 2026-09-28：执行 Release 编译并修正清单复制
+- 普通战胜利获得30经验，精英获得50；跨100/200时升级，超过300封顶。
+- 受伤后进入战斗，按等级恢复3/4/5生命；保存退出并继续后经验相同。
+- 夜游抽到后保留，支付1费获得无实体并消耗；下一场仍在牌组中。
+- 噬灵未击杀时施加虚弱；击杀时治疗3、回能1、生成晕眩。特别检查最后一个敌人的击杀治疗。
+- 第一幕 Boss 战检查各档生命/力量增幅，3级无增幅，获胜时至少达到3级。
+- 现有存档不会自动替换旧牌组；请新开局验证。新牌升级尚未设计，暂不能升级。
 
-- 首次编译成功，但检查发现输出目录缺少 SpiritualRealmWalker.json。
-- 修改 SpiritualRealmWalker.csproj：将清单条目的 None Update 改为 None Include，显式加入编译项目并保留 PreserveNewest 复制规则。Update 只修改已有条目，此前未实际包含该清单。
-- 再次编译成功：零警告、零错误。输出目录同时存在 DLL 和 JSON；清单副本与源码清单的文件哈希一致。
-- 更新 README.md；编译工具生成或更新 .godot 下的 DLL、调试符号、清单副本及中间文件。
-- 未修改 ModEntry.cs 或清单内容，未删除文件，未部署或启动游戏。本次仅完成编译与产物检查。
+## 文档维护规则
 
-### 2026-09-28：部署正式 Mod 并验证游戏加载
+- `README.md` 只维护当前有效状态、项目结构、构建方式和验证方法。
+- `DESIGN.md` 维护当前有效的机制、数值、卡牌和职业设计；方案改变时直接更新对应章节。
+- `DEVLOG.md` 按时间追加每次任务的目的、文件变化、问题、解决方案和验证结果。
+- 已验证、待验证和计划中的内容必须明确区分。
+- 每次完成任务都向用户说明具体新增、修改、删除的文件；自动生成内容单独说明。
+- 不执行批量文件删除；需要批量清理时由用户手动处理。
 
-- 在游戏目录新增 mods\SpiritualRealmWalker 文件夹。
-- 新增 mods\SpiritualRealmWalker\SpiritualRealmWalker.dll：复制已编译的 Mod 代码。
-- 新增 mods\SpiritualRealmWalker\SpiritualRealmWalker.json：复制编译输出的清单。
-- 两个部署文件与编译产物的 SHA256 一致。
-- 通过 Steam 启动游戏；godot.log 确认发现清单、加载 DLL、调用 ModEntry、输出 Initialized v0.1.0，并完成初始化。
-- 修改 README.md：同步部署状态、验证证据及下一步。未修改源码、项目配置或清单内容，未删除文件。
-- 游戏启动过程中自行更新日志及运行数据；这些不是新增的项目源文件。
+## 下一步
 
-### 2026-09-28：初始化本地 Git 仓库
-
-- 在 D:\Code\SpiritualRealmWalker 执行 git init -b main，新增 .git/ 元数据目录。
-- 保留现有 .gitignore：排除 .godot/、bin/、obj/ 和编辑器缓存；ModEntry.cs.uid 应随源码提交。
-- 更新 README.md 的版本控制状态、目录用途和变更记录。
-- 本次不暂存文件、不创建提交、不配置远程地址，不修改全局 Git 设置；未删除文件。
-- 可运行 git status 查看待跟踪文件。首次提交前尚无可回退的代码快照。
-
-## 8. 维护约定与下一步
-
-- 每次完成项目任务，同步更新本文的当前阶段、受影响的文件说明、验证结果及变更记录。
-- 向用户说明新增、修改、删除的具体文件与原因，以及工具自动生成的主要内容。
-- 将“已经验证”和“计划执行”明确区分；操作失败或尚未验证时如实记录。
-- 遵守用户的文件删除规则：不执行批量删除；需要批量清理时请用户手动操作。
-- 下一步：确定首个角色及最小内容范围，再引入所需基础库并实现角色骨架。
-
-
-
+启动游戏，新开“元始天尊”对局，按上述清单验收第一版机制。

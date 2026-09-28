@@ -1,0 +1,5 @@
+{
+  "SPIRITUAL_REALM_WALKER_RELIC_NIGHT_TOKEN.title": "Character Card",
+  "SPIRITUAL_REALM_WALKER_RELIC_NIGHT_TOKEN.description": "Yuanshi Tianzun / Night Wanderer\nLevel: {Level}  EXP: {Experience}/100\nLunar Energy uses normal Energy, with no holding cap.\nLunar Spirit: Heal {Healing} HP at combat start.\nGain 30 EXP from normal victories or 50 from elites. Cap: Level 3, 100 EXP.\nAct 1 trial tier: {Trial} (0 means no boost). Each tier gives the boss +10% Max HP and +1 Strength. Victory raises you to at least Level 3.",
+  "SPIRITUAL_REALM_WALKER_RELIC_NIGHT_TOKEN.flavor": "Name: Yuanshi Tianzun. Class: Night Wanderer."
+}

@@ -1,0 +1,21 @@
+{
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.aromaPrinciple": "[sine][purple]Under the night, everything leaves a trace.[/purple][/sine]",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.banter.alive.endTurnPing": "Your turn.",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.banter.dead.endTurnPing": "Leave me for now.",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.cardsModifierDescription": "Night Wanderer cards can now appear in rewards and shops.",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.cardsModifierTitle": "Night Wanderer Cards",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.defeatMessage": "The Spirit Realm is not over yet.",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.description": "Spirit Realm ID: [gold]Yuanshi Tianzun[/gold]\nClass: [purple]Night Wanderer[/purple]",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.eventDeathPrevention": "It is not time to leave the Spirit Realm.",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.flavor": "A Night Wanderer who entered the Spirit Realm through the Demon Monarch's character card.",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.goldMonologue": "Keep it. It will be useful eventually.",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.possessiveAdjective": "his",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.pronounObject": "him",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.pronounPossessive": "his",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.pronounSubject": "he",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.selectMessage": "The instance begins.",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.title": "Yuanshi Tianzun",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.titleObject": "Yuanshi Tianzun",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.unlockText": "Complete a run as [pink]{Prerequisite}[/pink] to unlock this character.",
+  "SPIRITUAL_REALM_WALKER_CHARACTER_YUANSHI_TIANZUN_CHARACTER.victoryMessage": "Mission complete. Rewards are being settled."
+}

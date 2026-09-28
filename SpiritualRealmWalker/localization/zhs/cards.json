@@ -1,0 +1,14 @@
+{
+  "SPIRITUAL_REALM_WALKER_CARD_NIGHT_STRIKE.title": "夜袭",
+  "SPIRITUAL_REALM_WALKER_CARD_NIGHT_STRIKE.description": "造成 {Damage:diff()} 点伤害。",
+  "SPIRITUAL_REALM_WALKER_CARD_NIGHT_STRIKE.smartDescription": "造成 {Damage:diff()} 点伤害。",
+  "SPIRITUAL_REALM_WALKER_CARD_SHADOW_GUARD.title": "影护",
+  "SPIRITUAL_REALM_WALKER_CARD_SHADOW_GUARD.description": "获得 {Block:diff()} 点格挡。",
+  "SPIRITUAL_REALM_WALKER_CARD_SHADOW_GUARD.smartDescription": "获得 {Block:diff()} 点格挡。",
+  "SPIRITUAL_REALM_WALKER_CARD_NIGHT_TRAVEL.title": "夜游",
+  "SPIRITUAL_REALM_WALKER_CARD_NIGHT_TRAVEL.description": "获得1层无实体。",
+  "SPIRITUAL_REALM_WALKER_CARD_NIGHT_TRAVEL.smartDescription": "获得1层无实体。",
+  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_DEVOUR.title": "噬灵",
+  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_DEVOUR.description": "造成 {Damage:diff()} 点伤害。若以此伤害击杀目标，恢复3点生命，获得1点太阴之力，并将一张晕眩放入弃牌堆；否则给予目标1层虚弱。",
+  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_DEVOUR.smartDescription": "造成 {Damage:diff()} 点伤害。若以此伤害击杀目标，恢复3点生命，获得1点太阴之力，并将一张晕眩放入弃牌堆；否则给予目标1层虚弱。"
+}
