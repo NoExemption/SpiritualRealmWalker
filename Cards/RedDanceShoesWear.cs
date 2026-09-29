@@ -1,0 +1,18 @@
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using SpiritualRealmWalker.Characters;
+using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Scaffolding.Content;
+
+namespace SpiritualRealmWalker.Cards;
+
+[RegisterCard(typeof(NightWandererCardPool))]
+public sealed class RedDanceShoesWear : ModCardTemplate
+{
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Dexterity", 2)];
+
+    public RedDanceShoesWear() : base(0, CardType.Skill, CardRarity.Token, TargetType.Self, true) { }
+    protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) => Task.CompletedTask;
+    protected override void OnUpgrade() => DynamicVars["Dexterity"].UpgradeValueBy(1);
+}

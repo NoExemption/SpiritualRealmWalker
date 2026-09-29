@@ -1,0 +1,8 @@
+{
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_PURSUIT_POWER.title": "Red Dance Shoes: Pursuit",
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_PURSUIT_POWER.description": "At the end of each turn, take 5 unblocked damage. Generate Dance Together in 3 turns. On death, return Red Dance Shoes to its user.",
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_PURSUIT_POWER.smartDescription": "At the end of each turn, take [blue]{Amount}[/blue] unblocked damage. Generate Dance Together in [blue]{Turns}[/blue] turns. On death, return Red Dance Shoes to its user.",
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_WEAR_POWER.title": "Red Dance Shoes: Wear",
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_WEAR_POWER.description": "Gain 6 Block at the end of your turn, 3 times. Generate Dance Together in 3 turns; at the end of that turn, lose the Dexterity granted by Red Dance Shoes and return Red Dance Shoes to your hand.",
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_WEAR_POWER.smartDescription": "Gain [blue]{Block}[/blue] Block at the end of your turn. This can trigger [blue]{BlockTriggers}[/blue] more times. Generate Dance Together in [blue]{Turns}[/blue] turns; at the end of that turn, lose the Dexterity granted by Red Dance Shoes and return Red Dance Shoes to your hand."
+}

@@ -1,0 +1,8 @@
+{
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_PURSUIT_POWER.title": "红舞鞋·追杀",
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_PURSUIT_POWER.description": "每个回合结束时，受到5点无视格挡的伤害。3回合后生成共舞。死亡后将红舞鞋返还给使用者。",
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_PURSUIT_POWER.smartDescription": "每个回合结束时，受到[blue]{Amount}[/blue]点无视格挡的伤害。[blue]{Turns}[/blue]回合后生成共舞。死亡后将红舞鞋返还给使用者。",
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_WEAR_POWER.title": "红舞鞋·穿戴",
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_WEAR_POWER.description": "你的回合结束时获得6点格挡，共触发3次。3回合后生成共舞；该回合结束时失去红舞鞋给予的敏捷，并将红舞鞋返回手牌。",
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_WEAR_POWER.smartDescription": "你的回合结束时获得[blue]{Block}[/blue]点格挡，还可触发[blue]{BlockTriggers}[/blue]次。[blue]{Turns}[/blue]回合后生成共舞；该回合结束时失去红舞鞋给予的敏捷，并将红舞鞋返回手牌。"
+}
