@@ -9,7 +9,7 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace SpiritualRealmWalker.Cards;
 
 [RegisterCard(typeof(NightWandererCardPool))]
-[RegisterCharacterStarterCard(typeof(YuanshiTianzunCharacter), 1)]
+[RegisterCharacterStarterCard(typeof(YuanshiTianzunCharacter), 1, Order = 3)]
 public sealed class NightTravel : ModCardTemplate
 {
     // 升级方案尚未确定，避免出现没有效果的升级选项。

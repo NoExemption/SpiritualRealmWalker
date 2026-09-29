@@ -1,23 +1,21 @@
-using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
-using SpiritualRealmWalker.Progression;
 using SpiritualRealmWalker.Characters;
+using SpiritualRealmWalker.Progression;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace SpiritualRealmWalker.Relics;
 
-/// <summary>
-/// 角色卡。保留 NightToken 模型 ID，使已存在的测试存档仍能找到遗物。
-/// </summary>
+/// <summary>元始天尊的角色卡，保存等级经验并执行夜游神成长机制。</summary>
 [RegisterRelic(typeof(NightWandererRelicPool))]
 [RegisterCharacterStarterRelic(typeof(YuanshiTianzunCharacter))]
-public sealed class NightToken : ModRelicTemplate
+public sealed class CharacterCard : ModRelicTemplate
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
     public override bool ShowCounter => true;
@@ -26,6 +24,7 @@ public sealed class NightToken : ModRelicTemplate
         [new DynamicVar("Level", 1), new DynamicVar("Experience", 0), new DynamicVar("Healing", 3), new DynamicVar("Trial", 4)];
 
     private int _totalExperience;
+
     [SavedProperty]
     public int TotalExperience
     {
@@ -56,7 +55,7 @@ public sealed class NightToken : ModRelicTemplate
             return;
 
         // 联机只由队伍中第一张角色卡施加一次，取所有角色卡的最高试炼档。
-        var cards = room.CombatState.Players.SelectMany(player => player.Relics).OfType<NightToken>().ToList();
+        var cards = room.CombatState.Players.SelectMany(player => player.Relics).OfType<CharacterCard>().ToList();
         if (cards.FirstOrDefault() != this) return;
         int tier = cards.Max(card => NightWandererProgression.TrialTier(card.TotalExperience));
         if (tier == 0) return;

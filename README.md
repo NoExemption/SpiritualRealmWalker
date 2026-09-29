@@ -9,10 +9,12 @@
 - 可选角色：元始天尊／夜游神。
 - 初始属性：75 点生命、99 金币。
 - 独立内容池：夜游神卡牌池、遗物池、药水池。
-- 初始牌组：4 张“夜袭”、4 张“影护”、1 张“夜游”和 1 张“噬灵”。
-- 初始遗物：“角色卡”，显示等级、经验、自愈量及试炼档位；内部保留 NightToken ID。
+- 初始牌组：3张“体术”、1张“射击”、4张“格挡”、1张“夜游”和1张“噬灵”。
+- 初始遗物：“角色卡”，显示等级、经验、自愈量及试炼档位。
 - 成长：普通胜利30经验、精英50经验，累计300封顶；战前恢复等级＋2生命。
 - 第一幕试炼：不足3级时强化主敌人生命与力量，胜利补足至3级。
+- 普通奖励池：嗜血之刃、沉稳者宝珠、天蟾香炉3张道具牌。
+- 道具资料：悬停以上道具牌时显示原文类型、功能、介绍和备注。
 - 本地化：简体中文及英文回退文本。
 - 占位资源：角色视觉暂时复用铁甲战士，攻击特效暂用游戏通用斩击，卡牌与遗物尚无正式图片。
 
@@ -37,19 +39,25 @@
 ```text
 SpiritualRealmWalker/
 ├─ Cards/                         卡牌代码
-│  ├─ NightStrike.cs              初始攻击牌“夜袭”
-│  ├─ ShadowGuard.cs              初始技能牌“影护”
+│  ├─ BodyTechnique.cs            基础攻击牌“体术”
+│  ├─ Shooting.cs                 基础攻击牌“射击”
+│  ├─ Block.cs                    基础技能牌“格挡”
 │  ├─ NightTravel.cs              夜游：无实体、保留、消耗
-│  └─ SpiritDevour.cs             噬灵：击杀治疗、回能与晕眩，否则虚弱
+│  ├─ SpiritDevour.cs             噬灵：击杀治疗、回能与晕眩，否则虚弱
+│  ├─ BloodthirstyBlade.cs        嗜血之刃：不可格挡伤害、中毒与击杀治疗
+│  ├─ SteadfastOrb.cs             沉稳者宝珠：高额格挡并生成碎屑
+│  └─ HeavenlyToadIncenseBurner.cs 天蟾香炉：使所有敌人和自身中毒
 ├─ Characters/                    角色与职业内容池
 │  ├─ YuanshiTianzunCharacter.cs  “元始天尊”角色模型
 │  ├─ NightWandererCardPool.cs     夜游神卡牌池
 │  ├─ NightWandererRelicPool.cs    夜游神遗物池
 │  └─ NightWandererPotionPool.cs   夜游神药水池
 ├─ Relics/
-│  └─ NightToken.cs               角色卡、存档、战前恢复及试炼钩子
+│  └─ CharacterCard.cs            角色卡、存档、战前恢复及试炼钩子
 ├─ Progression/NightWandererProgression.cs  等级、经验封顶和试炼分档
 ├─ Tests/Verify-Progression.ps1    成长边界与双语文本检查
+├─ Tools/Extract-NovelItems.ps1    从小说原文提取并逐次编号道具信息
+├─ ITEMS.md                        从小说原文提取的编号道具资料
 ├─ SpiritualRealmWalker/
 │  └─ localization/
 │     ├─ zhs/                      简体中文文本
@@ -66,6 +74,14 @@ SpiritualRealmWalker/
 ```
 
 `.godot/` 是 Godot 和编译工具生成的缓存及中间产物，由 `.gitignore` 排除，不应手动维护。`灵境行者.txt` 是原作资料，只按当前设计问题分段检索，不整本读取，也不作为程序资源处理。
+
+提取小说中采用固定属性格式的道具信息：
+
+```powershell
+pwsh -NoProfile -File .\Tools\Extract-NovelItems.ps1
+```
+
+脚本默认读取项目根目录中被 Git 忽略的 `灵境行者.txt`，将结果写入 `ITEMS.md`。每次以“【名称：”开头的属性展示都使用独立三位序号，并严格按原文顺序保留；同名或同内容条目出现多次时也不会去重。执行脚本会覆盖现有的 `ITEMS.md`。
 
 ## 构建
 
@@ -91,6 +107,8 @@ dotnet build .\SpiritualRealmWalker.csproj -c Release -p:GameDir="新的游戏�
 
 部署前应关闭游戏，避免正在加载的 DLL 阻止覆盖。Godot 中可通过项目管理器导入 `project.godot`；该项目是由游戏加载的 Mod，没有独立主场景，不使用 Godot 的运行按钮验证。
 
+项目约定：完成功能代码、配置或本地化修改后，默认执行 Release 编译、必要检查和部署。部署前先检查游戏是否运行；游戏仍在运行时只完成编译和检查，待游戏关闭后再部署。仅修改开发文档时不重复部署。
+
 ## 加载与验证
 
 游戏加载的三个文件位于 `mods\SpiritualRealmWalker`：
@@ -111,7 +129,7 @@ dotnet build .\SpiritualRealmWalker.csproj -c Release -p:GameDir="新的游戏�
 2. RitsuLib 报告 SpiritualRealmWalker 的自动注册全部成功。
 3. 中英文 `cards.json`、`characters.json`、`relics.json` 完成合并。
 4. 游戏中能选择元始天尊并以该角色开始一局。
-5. 新局包含4夜袭、4影护、1夜游、1噬灵和“角色卡”。
+5. 新局包含3体术、1射击、4格挡、1夜游、1噬灵和“角色卡”。
 
 以上前四项在此前骨架版本已验证，新机制版本需要重新验收。缺少自定义卡图和遗物图标产生的占位资源警告是当前已知限制。
 
@@ -137,6 +155,7 @@ pwsh -NoProfile -File Tests/Verify-Progression.ps1
 - `DEVLOG.md` 按时间追加每次任务的目的、文件变化、问题、解决方案和验证结果。
 - 已验证、待验证和计划中的内容必须明确区分。
 - 每次完成任务都向用户说明具体新增、修改、删除的文件；自动生成内容单独说明。
+- 功能代码、配置或本地化修改完成后默认自动编译并部署；部署前检查游戏进程。纯文档修改不部署。
 - 不执行批量文件删除；需要批量清理时由用户手动处理。
 
 ## 下一步
