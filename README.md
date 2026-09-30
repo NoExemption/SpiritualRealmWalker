@@ -6,6 +6,8 @@
 
 ## 当前功能
 
+第三批新增灵体结晶、大罗星盘、猫王音箱，奖励池共9张；用户已完成游戏内测试，未报告问题，当前作为9张道具牌的稳定版本保存。
+
 - 可选角色：元始天尊／夜游神。
 - 初始属性：75 点生命、99 金币。
 - 独立内容池：夜游神卡牌池、遗物池、药水池。
@@ -13,8 +15,8 @@
 - 初始遗物：“角色卡”，显示等级、经验、自愈量及试炼档位。
 - 成长：普通胜利30经验、精英50经验，累计300封顶；战前恢复等级＋2生命。
 - 第一幕试炼：不足3级时强化主敌人生命与力量，胜利补足至3级。
-- 普通奖励池：嗜血之刃、沉稳者宝珠、天蟾香炉、永不熄灭的蜡烛、红舞鞋和伏魔杵6张道具牌。
-- 道具资料：悬停6张道具牌时显示原文类型、功能、介绍和备注。
+- 道具奖励池：嗜血之刃、沉稳者宝珠、天蟾香炉、永不熄灭的蜡烛、红舞鞋、伏魔杵、灵体结晶、大罗星盘、猫王音箱，共9张，包含普通、罕见和稀有牌。
+- 道具资料：悬停9张道具牌时显示原文类型、功能、介绍和备注。
 - 本地化：简体中文及英文回退文本。
 - 占位资源：角色视觉暂时复用铁甲战士，攻击特效暂用游戏通用斩击，卡牌与遗物尚无正式图片。
 
@@ -39,6 +41,11 @@
 ```text
 SpiritualRealmWalker/
 ├─ Cards/                         卡牌代码
+│  ├─ SpiritCrystal.cs            灵体结晶：回能，升级保留
+│  ├─ GreatLuoAstrolabe.cs         大罗星盘：持续观星与定向过牌
+│  ├─ CatKingSpeaker.cs           猫王音箱：选择音频并消耗
+│  ├─ CatKingSpeakerDrum.cs       鼓声选择牌
+│  ├─ CatKingSpeakerSuona.cs      唢呐选择牌
 │  ├─ BodyTechnique.cs            基础攻击牌“体术”
 │  ├─ Shooting.cs                 基础攻击牌“射击”
 │  ├─ Block.cs                    基础技能牌“格挡”
@@ -54,6 +61,8 @@ SpiritualRealmWalker/
 │  ├─ DanceTogether.cs              红舞鞋生成的状态牌“共舞”
 │  └─ DemonSubduingPestle.cs        伏魔杵：献祭生命、攻击并净化
 ├─ Powers/
+│  ├─ GreatLuoAstrolabePower.cs   正常抽牌前查看顶部牌并选择
+│  ├─ CatKingSpeakerSuonaPower.cs 唢呐独立计时与生命代价
 │  ├─ RedDanceShoesPursuitPower.cs  追杀的回合伤害与共舞计时
 │  └─ RedDanceShoesWearPower.cs     穿戴的格挡、共舞与敏捷期限
 ├─ Characters/                    角色与职业内容池

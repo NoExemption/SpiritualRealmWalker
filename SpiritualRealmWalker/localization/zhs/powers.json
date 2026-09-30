@@ -4,5 +4,12 @@
   "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_PURSUIT_POWER.smartDescription": "每个回合结束时，受到[blue]{Amount}[/blue]点无视格挡的伤害。[blue]{Turns}[/blue]回合后生成共舞。死亡后将红舞鞋返还给使用者。",
   "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_WEAR_POWER.title": "红舞鞋·穿戴",
   "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_WEAR_POWER.description": "你的回合结束时获得6点格挡，共触发3次。3回合后生成共舞；该回合结束时失去红舞鞋给予的敏捷，并将红舞鞋返回手牌。",
-  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_WEAR_POWER.smartDescription": "你的回合结束时获得[blue]{Block}[/blue]点格挡，还可触发[blue]{BlockTriggers}[/blue]次。[blue]{Turns}[/blue]回合后生成共舞；该回合结束时失去红舞鞋给予的敏捷，并将红舞鞋返回手牌。"
+  "SPIRITUAL_REALM_WALKER_POWER_RED_DANCE_SHOES_WEAR_POWER.smartDescription": "你的回合结束时获得[blue]{Block}[/blue]点格挡，还可触发[blue]{BlockTriggers}[/blue]次。[blue]{Turns}[/blue]回合后生成共舞；该回合结束时失去红舞鞋给予的敏捷，并将红舞鞋返回手牌。",
+  "SPIRITUAL_REALM_WALKER_POWER_GREAT_LUO_ASTROLABE_POWER.title": "大罗星盘",
+  "SPIRITUAL_REALM_WALKER_POWER_GREAT_LUO_ASTROLABE_POWER.description": "正常抽牌前查看抽牌堆顶部3张牌，选择1张加入手牌，其余放入弃牌堆。",
+  "SPIRITUAL_REALM_WALKER_POWER_GREAT_LUO_ASTROLABE_POWER.smartDescription": "正常抽牌前查看抽牌堆顶部[blue]{Amount}[/blue]张牌，选择1张加入手牌，其余放入弃牌堆。",
+  "SPIRITUAL_REALM_WALKER_POWER_GREAT_LUO_ASTROLABE_POWER.selectionPrompt": "选择1张牌加入手牌",
+  "SPIRITUAL_REALM_WALKER_POWER_CAT_KING_SPEAKER_SUONA_POWER.title": "猫王音箱·唢呐",
+  "SPIRITUAL_REALM_WALKER_POWER_CAT_KING_SPEAKER_SUONA_POWER.description": "第3个玩家回合结束时，若战斗尚未结束，失去10点生命。使用的当前回合计入。",
+  "SPIRITUAL_REALM_WALKER_POWER_CAT_KING_SPEAKER_SUONA_POWER.smartDescription": "再经过[blue]{Amount}[/blue]次玩家回合结束，若战斗尚未结束，失去10点生命。"
 }
