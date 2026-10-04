@@ -14,6 +14,9 @@ namespace SpiritualRealmWalker.Cards;
 [RegisterCard(typeof(NightWandererCardPool))]
 public sealed class HeavenlyToadIncenseBurner : ModCardTemplate
 {
+    public override string CustomPortraitPath =>
+        "res://SpiritualRealmWalker/images/cards/heavenly_toad_incense_burner.png";
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new DynamicVar("EnemyPoison", 3),

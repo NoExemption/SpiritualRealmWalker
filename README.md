@@ -6,7 +6,25 @@
 
 ## 当前功能
 
+卡牌插图的原文核对、构图、手绘与配色要求见 [绘图规范](Art/ART_GUIDELINES.md)。
+
+三辰能量图标已确认定稿并编译部署，费用图标74×74、文本小图标24×24，后者由前者直接缩小。卡牌、遗物和药水池共用 `SpiritualRealmWalker/images/ui/energy_big.png` 与 `energy_text.png`，代表太阴、星辰与太阳共用的能量；已验证部署PCK能加载两张纹理，游戏内显示待验收。资源及配色依据见 [图标说明](Art/Icons/2026-10-04/ENERGY_ICONS.md)。
+
+猫王音箱已接入带灰银色猫图案的手绘卡图：`SpiritualRealmWalker/images/cards/cat_king_speaker.png`，普通与升级版共用；游戏内显示待验收。
+
+沉稳者宝珠和天蟾香炉已确认美术定稿并绑定 `steadfast_orb.png`、`heavenly_toad_incense_burner.png`，普通与升级版共用；部署后的卡框显示待验收。
+
+嗜血之刃已绑定手绘挥砍卡图，资源位于 `SpiritualRealmWalker/images/cards/bloodthirsty_blade.png`，普通版与升级版共用。概念图为 `Art/Concepts/2026-09-30/bloodthirsty-blade.png`，已部署，游戏内显示待验收，其他卡图仍为占位图。`Art/` 不进入游戏PCK。
+
 第三批新增灵体结晶、大罗星盘、猫王音箱，奖励池共9张；用户已完成游戏内测试，未报告问题，当前作为9张道具牌的稳定版本保存。
+
+灵体结晶的回能描述采用原版能量图标格式，显示两枚共用图标，普通与升级版保持获得2点能量；此次描述修改后的游戏内显示待验收。
+
+费用数字使用本 Mod 专属样式：在三辰费用图标上向上移动4个显示像素，字号上限由原版32调整为26；普通费用为暖象牙白（`#f1deb7`），搭配3像素棕黑描边（`#1b1711`）与右下方短阴影（`#100e0bdd`，偏移1/2像素）。保留原版减费绿色、增费红色及禁用灰色；只影响夜游神卡池，其他卡池恢复原布局。修改后的游戏内显示待验收。
+
+费用字体采用独立FontVariation，`VariationEmbolden`增加0.65；先完成原版本地化字体刷新，再应用加粗变体，防止字重被覆盖，不修改游戏共享字体。
+
+费用字体及其回退字体的独立副本使用普通光栅化，关闭MSDF，规避人工加粗轮廓相交造成的黑色针孔；原版共享字体仍保持MSDF，黑点修正后的游戏内显示待验收。
 
 - 可选角色：元始天尊／夜游神。
 - 初始属性：75 点生命、99 金币。
@@ -69,14 +87,17 @@ SpiritualRealmWalker/
 │  ├─ YuanshiTianzunCharacter.cs  “元始天尊”角色模型
 │  ├─ NightWandererCardPool.cs     夜游神卡牌池
 │  ├─ NightWandererRelicPool.cs    夜游神遗物池
-│  └─ NightWandererPotionPool.cs   夜游神药水池
+│  ├─ NightWandererPotionPool.cs   夜游神药水池
+│  └─ ThreeLuminariesEnergyIcons.cs 三辰共用费用及文本图标路径
 ├─ Relics/
 │  └─ CharacterCard.cs            角色卡、存档、战前恢复及试炼钩子
 ├─ Progression/NightWandererProgression.cs  等级、经验封顶和试炼分档
+├─ Patches/EnergyCostLabelAlignmentPatch.cs  三辰费用数字的位置、大小与普通费用配色
 ├─ Tests/Verify-Progression.ps1    成长边界与双语文本检查
 ├─ Tools/Extract-NovelItems.ps1    从小说原文提取并逐次编号道具信息
 ├─ ITEMS.md                        从小说原文提取的编号道具资料
 ├─ SpiritualRealmWalker/
+│  ├─ images/ui/                   正式能量图标（74×74与24×24）
 │  └─ localization/
 │     ├─ zhs/                      简体中文文本
 │     └─ eng/                      英文回退文本
@@ -125,7 +146,7 @@ dotnet build .\SpiritualRealmWalker.csproj -c Release -p:GameDir="新的游戏�
 
 部署前应关闭游戏，避免正在加载的 DLL 阻止覆盖。Godot 中可通过项目管理器导入 `project.godot`；该项目是由游戏加载的 Mod，没有独立主场景，不使用 Godot 的运行按钮验证。
 
-项目约定：完成功能代码、配置或本地化修改后，默认执行 Release 编译、必要检查和部署。部署前先检查游戏是否运行；游戏仍在运行时只完成编译和检查，待游戏关闭后再部署。仅修改开发文档时不重复部署。
+项目约定：完成功能代码、配置或本地化修改后，默认执行 Release 编译、必要检查和部署。部署前检查游戏是否运行；用户已授权检测到游戏运行时直接关闭游戏，再完成部署，无需等待手动关闭。仅修改开发文档时不重复部署。
 
 ## 加载与验证
 
@@ -176,7 +197,7 @@ pwsh -NoProfile -File Tests/Verify-Progression.ps1
 - `DEVLOG.md` 按时间追加每次任务的目的、文件变化、问题、解决方案和验证结果。
 - 已验证、待验证和计划中的内容必须明确区分。
 - 每次完成任务都向用户说明具体新增、修改、删除的文件；自动生成内容单独说明。
-- 功能代码、配置或本地化修改完成后默认自动编译并部署；部署前检查游戏进程。纯文档修改不部署。
+- 功能代码、配置或本地化修改完成后默认自动编译并部署；部署前检查游戏进程，运行中则直接关闭。纯文档修改不部署。
 - 不执行批量文件删除；需要批量清理时由用户手动处理。
 
 ## 下一步

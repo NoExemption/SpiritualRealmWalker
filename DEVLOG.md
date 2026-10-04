@@ -1,29 +1,9 @@
 # SpiritualRealmWalker 开发日志
 
-## 2026-09-30
-
-### 1. 实现第三批道具牌
-
-- 灵体结晶：普通技能，0费获得2点太阴之力并消耗，升级获得保留。
-- 大罗星盘：稀有能力，2费，从下一回合起在正常抽牌前查看顶部3张牌，选择1张入手，其余进入弃牌堆；升级查看4张，空牌堆跳过，不提前洗牌。
-- 猫王音箱：罕见技能，1费选择鼓声或唢呐并消耗；鼓声获得2点力量并给予全体敌人1层虚弱，唢呐获得4点力量并在第三次玩家回合结束失去10点生命。升级两种音频力量分别为3/5。唢呐使用当回合计入，共3回合；多次使用独立计时，可被净化。
-- 新增5个卡牌源码：`SpiritCrystal.cs`、`GreatLuoAstrolabe.cs`、`CatKingSpeaker.cs`、`CatKingSpeakerDrum.cs`、`CatKingSpeakerSuona.cs`；新增2个能力源码：`GreatLuoAstrolabePower.cs`、`CatKingSpeakerSuonaPower.cs`，Godot生成7个对应UID。
-- 修改中英文卡牌和能力JSON，加入牌效、选择提示及原文悬停说明；修改README与DESIGN，同步奖励池9张及当前规则。本次未改写ITEMS中用户已有的制作状态标记。
-- Release编译0警告、0错误；4个JSON解析及现有32项成长与双语检查通过。游戏关闭后完成部署，DLL和清单哈希一致，PCK为40576字节。
-- 没有删除文件，没有提交Git；第三批待游戏内验证，能力图标与卡牌插图仍使用占位资源。
-
-### 2. 验收第三批并保存9张道具牌稳定版本
-
-- 用户确认第三批游戏内测试结束，未报告问题；据此将灵体结晶、大罗星盘和猫王音箱标记为已完成实机验收。
-- 修改README和DESIGN的第三批验收状态；补齐ITEMS中大罗星盘的已制作标记，并保留用户已有的其他道具状态标记。
-- 将第三批5个卡牌源码、2个能力源码、7个Godot UID、中英文卡牌与能力文本及开发文档纳入Git提交，保存当前9张道具牌的稳定版本。
-- 本次仅修改文档状态并创建提交，不重新部署；没有新增或删除文件，小说原文继续被忽略。
-
 本文按时间记录项目的实际开发过程，包括任务目标、文件变动、故障原因和验证结果。项目当前用法与有效状态见 [README.md](README.md)，当前玩法方案见 [DESIGN.md](DESIGN.md)。
 
 ## 记录规范
 
-每天的开发内容使用三级标题，按发生顺序从1开始编号；新的一天重新从1开始。
 
 每项记录尽量包含以下内容：
 
@@ -584,3 +564,242 @@
 - 共舞仍按每3个玩家回合生成一次；修改追杀选择牌、追杀能力、红舞鞋主牌、中英文文本、`DESIGN.md` 和 `README.md`，没有新增或删除文件。
 - 4个相关中英文JSON解析通过；Release编译成功，0警告、0错误。部署前确认游戏未运行并完成部署，DLL与JSON的SHA256分别与源产物一致，PCK大小为30752字节。
 - 游戏内最终验收通过：第二批3张道具及红舞鞋两种形态、指定追杀、目标死亡返还、穿戴格挡、共舞和动态说明均未发现问题，作为当前6张道具牌的稳定版本提交Git。
+
+## 2026-09-30
+
+### 1. 实现第三批道具牌
+
+- 灵体结晶：普通技能，0费获得2点太阴之力并消耗，升级获得保留。
+- 大罗星盘：稀有能力，2费，从下一回合起在正常抽牌前查看顶部3张牌，选择1张入手，其余进入弃牌堆；升级查看4张，空牌堆跳过，不提前洗牌。
+- 猫王音箱：罕见技能，1费选择鼓声或唢呐并消耗；鼓声获得2点力量并给予全体敌人1层虚弱，唢呐获得4点力量并在第三次玩家回合结束失去10点生命。升级两种音频力量分别为3/5。唢呐使用当回合计入，共3回合；多次使用独立计时，可被净化。
+- 新增5个卡牌源码：`SpiritCrystal.cs`、`GreatLuoAstrolabe.cs`、`CatKingSpeaker.cs`、`CatKingSpeakerDrum.cs`、`CatKingSpeakerSuona.cs`；新增2个能力源码：`GreatLuoAstrolabePower.cs`、`CatKingSpeakerSuonaPower.cs`，Godot生成7个对应UID。
+- 修改中英文卡牌和能力JSON，加入牌效、选择提示及原文悬停说明；修改README与DESIGN，同步奖励池9张及当前规则。本次未改写ITEMS中用户已有的制作状态标记。
+- Release编译0警告、0错误；4个JSON解析及现有32项成长与双语检查通过。游戏关闭后完成部署，DLL和清单哈希一致，PCK为40576字节。
+- 没有删除文件，没有提交Git；第三批待游戏内验证，能力图标与卡牌插图仍使用占位资源。
+
+### 2. 验收第三批并保存9张道具牌稳定版本
+
+- 用户确认第三批游戏内测试结束，未报告问题；据此将灵体结晶、大罗星盘和猫王音箱标记为已完成实机验收。
+- 修改README和DESIGN的第三批验收状态；补齐ITEMS中大罗星盘的已制作标记，并保留用户已有的其他道具状态标记。
+- 将第三批5个卡牌源码、2个能力源码、7个Godot UID、中英文卡牌与能力文本及开发文档纳入Git提交，保存当前9张道具牌的稳定版本。
+- 本次仅修改文档状态并创建提交，不重新部署；没有新增或删除文件，小说原文继续被忽略。
+
+### 3. 制作两件道具的四张风格样图
+
+- 使用内置image_gen生成嗜血之刃、猫王音箱各一张中式志怪绘本与现代都市怪谈插图，供美术风格比较。
+- 新增 `Art/Concepts/2026-09-30/` 下4张PNG及 `PROMPTS.md`，记录提示方向与生成方式。
+- 图片尚未绑定游戏卡牌资源；本次未修改功能代码，未部署，未提交Git，没有删除文件。
+
+### 4. 接入嗜血之刃的志怪版卡图
+
+- 新增 `SpiritualRealmWalker/images/cards/bloodthirsty_blade.png`，复制志怪版源图用于第一次游戏内显示测试；本次保留原图构图，通过游戏自身卡图区域显示。
+- 修改 `Cards/BloodthirstyBlade.cs`，通过RitsuLib的公开 `CustomPortraitPath` 接口绑定图片，普通与升级版共用。
+- 修改 `export_presets.cfg`，排除 `Art/*` 风格对照源图；修改README说明当前卡图状态。
+- Release编译0警告、0错误，Godot图片导入及项目缓存中的预览PCK导出成功。Godot自动生成5个PNG导入配置及被忽略的纹理缓存。
+- 检查时游戏正在运行，暂未覆盖游戏部署文件，实际显示与裁切待游戏关闭后部署验收；未删除文件，未提交Git。
+
+### 5. 部署嗜血之刃卡图并更新自动关闭约定
+
+- 用户授权以后部署检测到游戏运行时直接关闭，无需手动关闭；本次停止SlayTheSpire2进程后重新部署。
+- Release编译0警告、0错误，Godot导出成功；DLL及清单哈希与源产物一致，PCK为2469004字节。
+- 导出包含嗜血之刃正式测试纹理，未包含Art目录下的风格对照图；实际游戏显示仍待验收。
+- 修改README中的部署约定及DEVLOG；覆盖游戏Mod目录中的DLL、JSON和PCK。没有新增或删除文件，未提交Git。
+
+### 6. 根据原文制作嗜血之刃手绘样稿
+
+- 小段查阅小说首次外观描写及首次道具信息，确认银亮柳刃、总长四十厘米和血液喂刀表现。
+- 新增 `Art/Concepts/2026-09-30/bloodthirsty-blade-handpainted-v2.png` 与 `BLADE_V2.md`，记录原文依据、完整提示词和待确认事项。
+- 使用内置image_gen制作25:19横向样稿，以手绘色块、简洁背景和少量血迹比较新风格。握柄细节为美术补充，仍待用户确认。
+- 未替换游戏卡图，未编译或部署，未提交Git，没有删除文件。
+
+### 7. 部署嗜血之刃手绘样稿
+
+- 将手绘v2样稿复制覆盖 `SpiritualRealmWalker/images/cards/bloodthirsty_blade.png`，保留原有概念图；卡牌源码绑定路径无需修改。
+- 按授权关闭游戏，Godot重新导入纹理；新增v2概念图的PNG导入配置，更新被忽略的纹理缓存。
+- Release编译及PCK导出成功，0警告、0错误；覆盖游戏Mod目录中的DLL、JSON和PCK。源卡图与样稿哈希一致，部署DLL与编译产物一致。
+- 本次未删除文件，未提交Git；卡图实际显示待游戏内确认。
+
+### 8. 整理绘图规范并制作嗜血之刃v3
+
+- 新增 `Art/ART_GUIDELINES.md`，统一原文检索、250×190构图、手绘色块、焦点动势、背景配色及验收流程；README增加入口。
+- 新增 `Art/Concepts/2026-09-30/bloodthirsty-blade-handpainted-v3.png` 和 `BLADE_V3.md`，记录原文依据、完整提示词与检查结果。
+- 内置image_gen生成新样稿，增加弧形挥斩笔触。安全余量与细碎纹理仍待改进，未替换当前游戏资源。
+- 本次只制作概念图和文档，未编译或部署，未提交Git，没有删除文件。
+
+### 9. 修正嗜血之刃器型及遮挡余量
+
+- 搜索柳刃与柳叶刀实物资料，区分历史兵器与同名日式厨刀；以小说短刀尺寸为准进行造型推断。
+- 新增 `bloodthirsty-blade-handpainted-v4.png` 和 `BLADE_V4.md`，收窄刀身、降低倾角、扩大上下余量，取消不合理运动弧线。
+- 修改 `Art/ART_GUIDELINES.md`，明确完整显示优先于主体占比、运动轨迹需符合实际、具体器型需查找实物依据。
+- 本次未替换正式卡图，未编译或部署，未提交Git，没有删除文件；游戏显示待确认。
+
+### 10. 恢复短刃造型并重新设计挥砍构图
+
+- 根据用户反馈恢复v2/v3短刃与鲜红血迹，以v2图作为内置image_gen参考，重新安排刀柄左上、刀尖右下的挥砍构图。
+- 新增 `bloodthirsty-blade-handpainted-v5.png` 与 `BLADE_V5.md`，记录完整提示词、用户造型选择和检查限制；更新绘图规范。
+- 未替换游戏卡图，未编译或部署，未提交Git，没有删除文件。遮挡效果待游戏验收。
+
+### 11. 部署嗜血之刃v5并列出旧稿清理范围
+
+- 覆盖正式 `bloodthirsty_blade.png`，Godot重新导入纹理并生成v3/v4/v5概念图导入配置。
+- 关闭游戏后编译部署；首次导出因Godot编辑器设置错误失败，重试成功，0警告、0错误，覆盖部署DLL、JSON与PCK。
+- README同步v5卡图状态。用户要求清除旧稿，但此前明确禁止批量删除，因此未删除文件，交由用户手动清理概念图目录中的旧版本及对应说明、导入配置。
+- 未提交Git，实际游戏显示待验收。
+
+### 12. 更新删除授权规则并清理美术草稿
+
+- 项目原先没有实体AGENTS.md；新增该文件，记录用户更新规则：明确要求或允许的范围内可以批量删除，操作前验证绝对路径与范围。
+- 在 `Art/Concepts/2026-09-30` 内删除19个文件：嗜血之刃v2/v3/v4图片及各自.import（6个），都市/志怪图片及各自.import（4个），BLADE_V2/V3/V4.md（3个），旧v5.import（1个），猫王音箱都市/志怪图片及各自.import（4个），旧PROMPTS.md（1个）。
+- 将保留的v5图片改名为 `bloodthirsty-blade.png`，说明改名为 `BLOODTHIRSTY_BLADE.md`；更新说明及README。旧开发日志保留历史文件名以记录实际操作。
+- 正式游戏卡图及部署文件不变；本次未重新编译、部署或提交Git。未删除目录和Godot缓存。
+
+### 13. 根据首次外观描写绘制猫王音箱
+
+- 小段阅读小说首次出现附近内容，确认黑色金属复合外壳、四方盒子、扬声器、两个按钮和半掌大小。
+- 新增 `Art/Concepts/2026-09-30/cat-king-speaker.png` 与 `CAT_KING_SPEAKER.md`，内置image_gen制作暖赭背景手绘样图，并记录完整提示词、出处和美术补充。
+- 机身下缘及背景密度仍需验收。本次未替换游戏资源，未编译、部署或提交Git，没有删除文件。
+
+### 14. 猫王音箱添加猫形图案
+
+- 用户确认提示词后，以原图为编辑目标调用内置image_gen，新增 `cat-king-speaker-cat-emblem.png`，在机身左侧添加灰银色坐猫剪影，保留原稿。
+- 更新 `CAT_KING_SPEAKER.md` 记录编辑提示词及结果；更新绘图规范，要求以后每次绘图前先展示提示词，确认后执行。
+- 未修改游戏资源，未编译或部署，未提交Git，没有删除文件。
+
+### 15. 规范猫王音箱文件名并部署
+
+- 单独删除无猫图案的旧 `Art/Concepts/2026-09-30/cat-king-speaker.png`，将带猫图案的 `cat-king-speaker-cat-emblem.png` 改名为 `cat-king-speaker.png`。
+- 新增正式资源 `SpiritualRealmWalker/images/cards/cat_king_speaker.png`；修改 `Cards/CatKingSpeaker.cs` 绑定卡图，普通及升级版共用。
+- 修改README及CAT_KING_SPEAKER.md，记录当前文件名和接入状态；Godot生成两张新卡图的.import配置及被忽略的缓存。
+- Release编译与PCK导出成功，0警告、0错误；部署DLL、JSON、PCK，图片与概念稿哈希一致，部署DLL与编译产物一致。
+- 未提交Git，实际显示待游戏内验收。导入时编辑器仍引用已删除的旧草稿路径，出现路径提示，不影响最终编译导出。
+
+### 16. 绘制沉稳者宝珠与天蟾香炉样稿
+
+- 根据用户确认提示词分别调用内置image_gen，新增 `steadfast-orb.png`、`heavenly-toad-incense-burner.png` 以及各自同名大写英文说明MD，位于今日概念图目录。
+- 说明记录原文依据、完整提示词及偏差：宝珠出现额外裂纹和碎石，香炉装饰偏多、主体偏大，三足结构待确认。
+- 未接入游戏，未编译或部署，未提交Git，没有删除文件；后续修图仍须先确认提示词。
+
+### 17. 修正宝珠表面并添加香炉紫色毒气
+
+- 用户确认编辑提示词后，分别使用内置image_gen编辑两张原稿。
+- 新增 `steadfast-orb-smooth.png`，去除裂纹与碎石、表现温润完整的土黄色宝珠；新增 `heavenly-toad-incense-burner-purple-mist.png`，保留香炉并增加少量半透明紫色烟气。
+- 更新两份道具美术说明，记录编辑提示词和结果，区分原文依据与用户指定美术表现。
+- 保留旧稿，未接入游戏，未编译或部署，未提交Git，没有删除文件。
+
+### 18. 宝珠与香炉定稿接入并部署
+
+- 用户确认定稿并授权后续自动清理、规范命名和部署；写入Art/ART_GUIDELINES.md，绘图前仍须确认提示词。
+- 分别单独删除裂纹版steadfast-orb.png、无紫雾版heavenly-toad-incense-burner.png；将修改稿改为上述标准名称。
+- 新增正式卡图steadfast_orb.png、heavenly_toad_incense_burner.png，修改Cards/SteadfastOrb.cs和Cards/HeavenlyToadIncenseBurner.cs绑定，普通与升级版共用。
+- 更新README、两份美术说明与DEVLOG；Godot生成4个图片.import及被忽略的纹理缓存。Release编译及PCK导出成功，0警告、0错误，部署DLL、JSON、PCK；两张图片与概念稿及部署DLL与编译产物哈希一致。
+- 未提交Git，卡框遮挡与实际显示待游戏内验收。
+
+## 2026-10-04
+
+### 1. 排查卡牌费用图标占位
+
+- 检查Characters/NightWandererCardPool.cs：EnergyColorName为NightWanderer，BigEnergyIconPath与TextEnergyIconPath均为null；遗物池和药水池也使用相同名称且未提供图标。
+- 当前游戏日志确认缺失 `card/energy_nightwanderer`，请求路径为 `res://images/atlases/ui_atlas.sprites/card/energy_nightwanderer.tres`；项目图片目录没有对应能量图标。截图红色NO PE与该费用位置缺失资源相符。
+- 本地RitsuLib 0.6.2 XML说明确认BigEnergyIconPath用于覆盖EnergyIconHelper.GetPath返回的大图标路径；TextEnergyIconPath用于富文本中的小能量图标，自定义能量名称不会自动生成纹理。
+- 结论：费用数值本身可见，问题在自定义能量图标未配置。后续可显式复用原版图标或制作并绑定专属图标；本次仅排查，未修改功能源码或资源，未部署、未提交Git。
+
+### 2. 核实原版能量图标尺寸
+
+- 联网查阅人物教程，确认BigEnergyIconPath要求74×74、TextEnergyIconPath要求24×24。
+- 只读解析本机SlayTheSpire2.pck资源目录和纹理头部，确认大图标AtlasTexture区域及边距、小图标CTEX宽高与教程一致。
+- 更新Art/ART_GUIDELINES.md记录尺寸、用途及来源；未提取或修改游戏资源，未部署、未提交Git，没有删除文件。
+
+### 3. 输出三辰能量图标PNG
+
+- 用户确认输出后，使用内置image_gen分别生成大版、小版，再通过Godot缩放为74×74与24×24。
+- 新增 `Art/Icons/2026-10-04/energy_big.png`、`energy_text.png`、`ENERGY_ICONS.md`；新增被忽略的 `.godot/export_energy_icons.gd` 用于确定尺寸导出。
+- 检查RGBA透明通道及最终尺寸通过；大版装饰偏繁复，小版星形未完全符合圆星点方案，说明中记录美术偏差，未标记定稿。
+- 首次受限环境Godot启动崩溃，独立目录重试成功。本次未修改功能代码，未部署、未提交Git，没有删除文件。
+
+### 4. 核对太阴、星辰与太阳的小说视觉描写
+
+- 按用户反馈小段查阅黑月、星官晋升、星盘与日游神晋升段落，确认太阴黑雾/黑月，星辰璀璨星光及星盘银色呈现，太阳印记红色外焰与鎏金圆核。
+- 更新ENERGY_ICONS.md，记录原文行号、第一版配色与卡通质感问题及新的庄严天象印记方向；银白星光方案明确为取自星盘呈现的美术推断。
+- 未重新生成图片，等待新提示词确认；未部署、未提交Git，没有删除文件。
+
+### 5. 依据小说重新绘制三辰图标
+
+- 用户确认重绘后，内置image_gen分别制作黑月、银白星辰、鎏金圆日与暗红外焰的新大/小图标。
+- 新增 `Art/Icons/2026-10-04/energy_big_revised.png`、`energy_text_revised.png`，通过被忽略的 `.godot/export_revised_energy_icons.gd` 导出74×74和24×24尺寸；RGBA透明通道检查通过。
+- 更新ENERGY_ICONS.md记录完整提示词和实际偏差：大版尖角与外沿装饰仍偏多，小版三星为三条连线。尚未定稿，保留旧版，未部署、未提交Git，没有删除文件。
+
+### 6. 统一费用图标与文本小图标
+
+- 按用户要求，文本小图标不再独立绘制，直接将 `energy_big_revised.png` 的74×74图案通过Godot Lanczos缩放为24×24，覆盖 `energy_text_revised.png`，保持相同构图、配色和纹样。
+- 修改 `.godot/export_revised_energy_icons.gd`，使小图始终读取大图生成；更新 `Art/ART_GUIDELINES.md` 与 `Art/Icons/2026-10-04/ENERGY_ICONS.md`，停用单独生成小图的规则，旧提示词作为历史保留。
+- PNG头部检查确认74×74与24×24均为RGBA，Godot检测透明通道通过，并查看最终小图。Godot另有根证书读取及沙盒内编辑器设置保存提示，不影响两张PNG成功保存。本次未新增或删除文件，未绑定游戏资源、未部署、未提交Git。
+
+### 7. 三辰能量图标定稿、接入与部署
+
+- 用户确认定稿，依照此前授权自动清理旧稿、规范命名并接入。删除前核对绝对路径，每次仅删除一个明确文件：初版 `Art/Icons/2026-10-04/energy_big.png`、`energy_text.png` 和被忽略的 `.godot/export_revised_energy_icons.gd`。
+- 将新版 `energy_big_revised.png`、`energy_text_revised.png` 分别更名为 `energy_big.png`、`energy_text.png`；新增正式资源 `SpiritualRealmWalker/images/ui/energy_big.png`、`energy_text.png`，Godot自动生成两张正式资源及两张概念资源的 `.import` 和忽略的纹理缓存。
+- 新增 `Characters/ThreeLuminariesEnergyIcons.cs`，Godot自动生成其 `.cs.uid`，集中管理太阴、星辰、太阳共用的两条图标路径；修改 `NightWandererCardPool.cs`、`NightWandererRelicPool.cs`、`NightWandererPotionPool.cs`，将原先空图标路径绑定为正式资源。不改能量名称和机制。
+- 修改被忽略的 `.godot/export_energy_icons.gd` 为读取定稿费用图标，缩小生成24×24文本图标并同步正式资源；新增忽略的 `.godot/verify_energy_pack.gd` 用于本次部署资源加载检查。更新 `README.md`、图标说明和本日志。
+- Godot导入成功；编辑器曾尝试定位已删除的早期刀图路径，属于旧编辑器布局提示。Release编译、PCK导出及部署成功，0警告、0错误。部署前未发现游戏在运行，未关闭任何进程。
+- 独立挂载部署PCK，两个正式资源路径均能加载为74×74与24×24纹理；概念/正式PNG、编译/部署DLL及源/部署清单的SHA256分别一致。受限环境资源检查另有证书及编辑器设置保存提示，不影响纹理加载。游戏内费用数字叠加和文本图标显示待用户验收。本次未提交Git。
+
+### 8. 灵体结晶改为原版能量图标描述
+
+- 只读解析本机原版PCK中的中英文卡牌文本，参考肾上腺素（ADRENALINE）、放血（BLOODLETTING）等卡牌的 `{Energy:energyIcons()}` 格式；没有修改或导出原版文件。
+- 修改 `Cards/SpiritCrystal.cs`，新增 `EnergyVar(2)`，回能效果从该变量读取数值，保持描述与效果一致；0费、消耗、升级获得保留和原文悬停资料均保持原方案。
+- 修改 `SpiritualRealmWalker/localization/zhs/cards.json` 与 `eng/cards.json` 中灵体结晶的 `description` 和 `smartDescription`：中文为 `获得{Energy:energyIcons()}。`，英文为 `Gain {Energy:energyIcons()}.`。按原版格式以两枚三辰文本图标显示，不写力量名称。
+- 更新 `DESIGN.md` 的当前图标状态及灵体结晶显示约定，更新 `README.md` 和本日志。本次没有新增或删除项目文件，未修改其他卡牌文本。
+- Release编译与部署成功，0警告、0错误；双语卡牌JSON解析及键一致性检查通过，部署DLL的SHA256与编译产物一致，Git差异空白检查通过。部署前未发现游戏运行。卡面实际图标排版仍待游戏内验收，未提交Git。
+
+## 2026-10-05
+
+### 1. 对齐三辰费用图标中的数字
+
+- 用户截图中费用数字偏离图标中央圆面。只读核对本机原版PCK内 `scenes/cards/card.tscn`：EnergyIcon为64×64显示控件，EnergyLabel垂直边距-26/30，布局中心偏下2像素；结合字形度量和当前图标圆面，将本Mod费用标签向上校正4个显示像素。
+- 新增 `Patches/EnergyCostLabelAlignmentPatch.cs`，在 `NCard.UpdateEnergyCostVisuals` 后仅对夜游神卡池调整费用标签上下边距，原-26/30变为-30/26；保存基准防止重复刷新累加偏移，节点转为其他卡池时恢复。Godot自动生成其 `.cs.uid`。
+- 修改 `SpiritualRealmWalker.csproj`，引用游戏现有 `0Harmony.dll` 且不复制该库；修改 `ModEntry.cs`，注册本Mod的Harmony补丁。没有下载新依赖，没有修改游戏原版资源，也没有改动两张定稿PNG。
+- 更新 `README.md`、`Art/Icons/2026-10-04/ENERGY_ICONS.md` 与本日志，记录修正范围及待验收状态。新增被Git忽略的 `.godot/inspect_energy_layout.gd`，只用于读取原版字体度量；首次函数名不匹配，修正后成功读取0/1/2/3/X的度量，未生成新图或修改图片。本次没有删除文件。
+- Release编译、PCK导出及部署成功，0警告、0错误；部署DLL与编译产物的SHA256一致，Git差异空白检查通过。
+- 以无窗口模式短暂启动游戏验证初始化，不进入对局。首次直接启动缺少Steam AppID；只读本机安装清单确认2868840后，使用临时进程环境变量重试，游戏正常加载DLL/PCK，日志确认本Mod初始化成功且未报告补丁注册异常，退出码0。无窗口退出存在引擎资源清理提示及既有占位遗物警告，不能替代视觉验收。游戏已自动退出。
+- 4像素修正为根据截图和布局作出的初次对齐，最终卡面位置仍待游戏内确认；未提交Git。
+
+### 2. 缩小费用数字并协调图标配色
+
+- 用户实测反馈数字仍遮挡下方太阳，且普通费用颜色不协调。保留向上4像素修正，将字号上限由32调整为26（约缩小19%），同步MegaLabel自动字号范围，避免刷新后恢复为大字。
+- 修改 `Patches/EnergyCostLabelAlignmentPatch.cs`，普通浅色费用改为暖象牙白 `#f1deb7`，使用2像素深棕描边 `#2b2115`；保留原版减费绿色、增费红色及禁用灰色。
+- 同时处理 `NCard.UpdateEnergyCostVisuals` 和 `UpdateEnergyCostColor`，覆盖单独刷新颜色的情况。用弱引用表保存标签原位置、字号范围及主题覆盖，重复刷新不累加偏移，节点转为其他卡池时恢复原样式。
+- 更新 `README.md`、`Art/ART_GUIDELINES.md`、`Art/Icons/2026-10-04/ENERGY_ICONS.md` 和本日志。本次没有新增或删除文件，两张定稿PNG保持不变，未下载依赖。
+- 按已有授权关闭运行中的游戏，Release编译及部署成功，0警告、0错误；部署DLL的SHA256与编译产物一致，Git差异空白检查通过。
+- 无窗口短暂启动游戏，Mod初始化成功且未报告补丁注册异常，进程自动退出、退出码0，没有进入对局。数字缩小、普通费用配色和太阳留白的最终视觉效果，以及战斗中减费/增费颜色，仍待游戏内验收；未提交Git。
+
+### 3. 轻微加粗费用数字字形
+
+- 用户参考其他Mod卡面，希望费用数字稍粗。保留26字号、向上4像素位置、2像素深棕描边和暖象牙白配色，在原版粗体基础上轻微增加字形厚度。
+- 修改 `Patches/EnergyCostLabelAlignmentPatch.cs`，复制原字体变体并将 `VariationEmbolden` 增加0.35；按原字体缓存独立变体，不修改共享字体、不在重复刷新时累加字重。标签转为其他卡池时恢复原字体覆盖。
+- 更新 `README.md`、`Art/ART_GUIDELINES.md`、`Art/Icons/2026-10-04/ENERGY_ICONS.md` 和本日志；修改被Git忽略的 `.godot/inspect_energy_layout.gd`，增加字体变体度量检查。本次未新增或删除文件，未改图片，未下载依赖。
+- Release编译及部署成功，0警告、0错误，部署DLL与编译产物SHA256一致。Godot只读加载原版粗体，确认原始加粗值仍为0、独立变体约0.35，并成功计算26字号下0123X字形度量；受限环境另有证书/编辑器设置保存提示，不影响度量检查。
+- 部署前未发现游戏运行，本次没有重复启动游戏；实际粗细和太阳留白效果待用户实测。未提交Git。
+
+### 4. 修复字重被覆盖，并增加棕黑数字阴影
+
+- 用户截图反馈加粗仍不明显，参考卡牌的数字具有更明显边缘阴影。只读检查原版MegaLabel方法IL，发现 `RefreshFont()` 调用 `ApplyLocaleFontSubstitution`：此前先覆盖加粗字体、再刷新字体的顺序会使独立字重被覆盖。此前仅度量变体，未验证其在最终标签上的保留，这是上次检查的限制。
+- 修改 `Patches/EnergyCostLabelAlignmentPatch.cs`，先刷新本地化字体，再应用独立加粗字体；`VariationEmbolden`由0.35调整为0.65，保持26字号和向上4像素位置。
+- 普通费用仍为暖象牙白；描边调整为3像素棕黑 `#1b1711`，增加棕黑短阴影 `#100e0bdd`（右1/下2像素，阴影描边2像素）。保存并恢复原阴影设置，避免节点复用影响其他卡池；费用增减及禁用文字颜色保留。
+- 更新 `README.md`、`Art/ART_GUIDELINES.md`、`Art/Icons/2026-10-04/ENERGY_ICONS.md` 和本日志；本地忽略的字体度量脚本同步检查0.65变体。本次没有新增或删除文件，没有修改PNG。
+- Release编译、导出及部署成功，0警告、0错误，部署DLL哈希与编译产物一致；Godot成功计算0.65变体的26字号字形度量，原始字体加粗值仍为0。受限环境有既有证书/编辑器设置保存提示，不影响度量。
+- 部署前未发现游戏运行。没有重复启动游戏，最终阴影、粗细与太阳留白仍待游戏内实测；未提交Git。
+
+### 5. 排查数字2/3的黑色针孔
+
+- 用户截图反馈费用数字2/3内部有小黑点。核对本机GodotSharp说明：人工加粗可能导致轮廓自相交，使MSDF字体渲染异常；Godot只读检查确认原版Kreon费用字体启用MSDF。此原因与截图相符，属于有依据的诊断，尚未通过游戏内对比最终证实。
+- 修改 `Patches/EnergyCostLabelAlignmentPatch.cs`，逐层复制费用字体、基础字体及回退字体，仅在独立FontFile副本关闭 `MultichannelSignedDistanceField`，改用普通光栅化；保留0.65字重、26字号、当前位置及棕黑描边/阴影，不修改共享字体和其他卡池。
+- 修改被Git忽略的 `.godot/inspect_energy_layout.gd`，验证原字体MSDF仍为true、副本为false，原始加粗值仍为0，0.65加粗副本的26字号0123X度量有效。受限环境既有证书及编辑器设置保存提示未影响度量。
+- 更新 `README.md`、`Art/ART_GUIDELINES.md`、`Art/Icons/2026-10-04/ENERGY_ICONS.md` 和本日志。没有新增或删除文件，没有修改PNG。
+- 按既有授权关闭运行中的游戏，Release编译、导出及部署成功，0警告、0错误。最终黑点是否消失及缩放清晰度仍待游戏内验收；未提交Git。
+
+### 6. 提交卡图、三辰能量图标及显示修正
+
+- 用户明确要求提交Git，本次保存当前完整工作状态：四张道具定稿卡图及绑定、三辰费用/文本图标、费用数字排版与字体渲染修正、灵体结晶图标描述，以及对应文档、导出配置和项目操作规则。
+- 提交前核对Git改动和美术文件范围，确认小说 `灵境行者.txt`、`.godot/`缓存与本地检查脚本仍被忽略；不将它们纳入提交。
+- 本次仅追加本日志并执行Git暂存/提交，没有生成新美术、删除文件或修改功能；沿用最新已通过的Release编译及部署结果，不重复构建或关闭游戏。
+- 费用字重/阴影已获用户基本认可；数字2/3黑点的最终修正仍保留“待游戏内验收”状态，不把提交等同于实测完成。本次只提交到本地仓库，不推送远端。

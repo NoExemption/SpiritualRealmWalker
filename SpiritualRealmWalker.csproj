@@ -17,6 +17,10 @@
       <HintPath>$(GameDir)\data_sts2_windows_x86_64\sts2.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(GameDir)\data_sts2_windows_x86_64\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <None Include="SpiritualRealmWalker.json" CopyToOutputDirectory="PreserveNewest" />
     <AdditionalFiles Include="SpiritualRealmWalker\localization\**\*.json" />
   </ItemGroup>

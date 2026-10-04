@@ -12,6 +12,9 @@ namespace SpiritualRealmWalker.Cards;
 [RegisterCard(typeof(NightWandererCardPool))]
 public sealed class CatKingSpeaker : ModCardTemplate
 {
+    public override string CustomPortraitPath =>
+        "res://SpiritualRealmWalker/images/cards/cat_king_speaker.png";
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DynamicVar("ItemLore", 0).WithTooltip("cards", "SPIRITUAL_REALM_WALKER_CARD_CAT_KING_SPEAKER.loreTitle", "cards", "SPIRITUAL_REALM_WALKER_CARD_CAT_KING_SPEAKER.loreDescription")];

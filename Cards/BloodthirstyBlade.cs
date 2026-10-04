@@ -15,6 +15,9 @@ namespace SpiritualRealmWalker.Cards;
 [RegisterCard(typeof(NightWandererCardPool))]
 public sealed class BloodthirstyBlade : ModCardTemplate
 {
+    public override string CustomPortraitPath =>
+        "res://SpiritualRealmWalker/images/cards/bloodthirsty_blade.png";
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new DamageVar(7, ValueProp.Move | ValueProp.Unblockable),

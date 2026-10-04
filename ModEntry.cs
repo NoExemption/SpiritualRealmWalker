@@ -1,5 +1,6 @@
 using System.Reflection;
 using Godot;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
 using STS2RitsuLib.Interop;
 
@@ -14,6 +15,7 @@ public static class ModEntry
     public static void Initialize()
     {
         ModTypeDiscoveryHub.RegisterModAssembly(ModId, Assembly.GetExecutingAssembly());
+        new Harmony(ModId).PatchAll(Assembly.GetExecutingAssembly());
         GD.Print("[SpiritualRealmWalker] Initialized v0.1.0");
     }
 }

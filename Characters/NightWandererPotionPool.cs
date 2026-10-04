@@ -10,6 +10,6 @@ public sealed class NightWandererPotionPool : TypeListPotionPoolModel
 {
     public override string EnergyColorName => "NightWanderer";
     public override Color LabOutlineColor => YuanshiTianzunCharacter.ThemeColor;
-    public override string? BigEnergyIconPath => null;
-    public override string? TextEnergyIconPath => null;
+    public override string? BigEnergyIconPath => ThreeLuminariesEnergyIcons.BigPath;
+    public override string? TextEnergyIconPath => ThreeLuminariesEnergyIcons.TextPath;
 }

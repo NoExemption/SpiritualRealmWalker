@@ -1,7 +1,7 @@
 {
   "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.title": "Spirit Crystal",
-  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.description": "Gain 2 Lunar Energy.",
-  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.smartDescription": "Gain 2 Lunar Energy.",
+  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.description": "Gain {Energy:energyIcons()}.",
+  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.smartDescription": "Gain {Energy:energyIcons()}.",
   "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.loreTitle": "Spirit Crystal",
   "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.loreDescription": "Type: Consumable\nFunction: None\nIntroduction: A purified soul crystal containing immense spiritual power, the supplement most desired by Night Wanderers.\nRemark: The Lady of Mount Sandao has purified its distracting thoughts. Consume with confidence.",
   "SPIRITUAL_REALM_WALKER_CARD_GREAT_LUO_ASTROLABE.title": "Great Luo Astrolabe",

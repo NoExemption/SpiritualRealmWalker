@@ -1,7 +1,7 @@
 {
   "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.title": "灵体结晶",
-  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.description": "获得2点太阴之力。",
-  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.smartDescription": "获得2点太阴之力。",
+  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.description": "获得{Energy:energyIcons()}。",
+  "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.smartDescription": "获得{Energy:energyIcons()}。",
   "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.loreTitle": "灵体结晶",
   "SPIRITUAL_REALM_WALKER_CARD_SPIRIT_CRYSTAL.loreDescription": "类型：消耗品\n功能：无\n介绍：经过日神之力净化后的灵魂结晶，蕴含庞大的灵力，是夜游神最渴望的补品。\n备注：三道山娘娘已经净化了结晶里的杂念，请放心食用。",
   "SPIRITUAL_REALM_WALKER_CARD_GREAT_LUO_ASTROLABE.title": "大罗星盘",
