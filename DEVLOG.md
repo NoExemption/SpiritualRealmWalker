@@ -803,3 +803,84 @@
 - 提交前核对Git改动和美术文件范围，确认小说 `灵境行者.txt`、`.godot/`缓存与本地检查脚本仍被忽略；不将它们纳入提交。
 - 本次仅追加本日志并执行Git暂存/提交，没有生成新美术、删除文件或修改功能；沿用最新已通过的Release编译及部署结果，不重复构建或关闭游戏。
 - 费用字重/阴影已获用户基本认可；数字2/3黑点的最终修正仍保留“待游戏内验收”状态，不把提交等同于实测完成。本次只提交到本地仓库，不推送远端。
+
+### 7. 制作三辰共用卡身与边框
+
+- 用户要求先制作卡身和边框。采用深靛蓝正文区、蓝灰金属外沿及细暗金线，呼应太阴、星辰、太阳共用费用图标；保留原版稀有度标题带，暂不添加文字区底纹。
+- 新增 `Characters/ThreeLuminariesCardStyle.cs`，加载并缓存两种材质；修改 `Characters/NightWandererCardPool.cs`，通过RitsuLib的 `PoolFrameMaterial` 绑定卡身。新增 `Patches/CardPortraitBorderStylePatch.cs`，在卡牌Reload/UpdateVisuals后设置独立插图边框材质，仅处理夜游神卡池，节点复用至其他卡池时恢复原材质。
+- 新增 `SpiritualRealmWalker/shaders/three_luminaries_card_frame.gdshader`、`three_luminaries_portrait_border.gdshader`，以及 `SpiritualRealmWalker/materials/` 下同名两份 `.tres`。分别重新配色卡身和插图边框，保留原版纹理、透明区域及节点调制。Godot自动生成两份C#和两份shader对应的 `.uid`。
+- 新增 `Art/CARD_STYLE.md`，记录统一视觉方向、颜色参数、文件用途和验收范围；修改 `README.md`、`Art/ART_GUIDELINES.md`，追加本日志。没有调用绘图工具，没有新增PNG正式美术，也没有删除文件或修改卡牌机制、费用图标。
+- 新增被Git忽略的 `.godot/inspect_card_frame.gd` 与 `.godot/verify_card_style.gd`，分别只读提取原版卡框参考、独立挂载部署PCK并渲染卡身；本地生成 `original_frame_reference.png`、`card_style_preview.png` 及检查输出日志。初次预览因TextureRect最小尺寸导致裁切、主窗口隐藏API提示错误；调整属性顺序并移除该API调用后重新渲染通过，无shader错误，300×422预览正文取样为不透明深蓝。预览不包含完整游戏卡牌节点，不能替代完整视觉验收。
+- Godot导入、Release编译、PCK导出及部署通过，0警告、0错误；导入期间有既有编辑器布局引用旧刀图的提示。部署前未发现游戏运行，无需关闭。编译与部署DLL的SHA256一致。
+- 使用临时Steam AppID环境变量无窗口短暂启动游戏，日志确认Mod初始化成功，退出码0，没有进入对局。长短描述、三类卡牌的完整外观及节点复用恢复仍待游戏内实测。本次未提交Git。
+
+### 8. 根据实测截图重新设计卡身与边框
+
+- 用户认为首版接近原版且缺少美感，提供一张本Mod截图及三张参考图。分析后，首版厚灰标题带、厚金属框及正文内凹结构仍占据视觉，单纯配色不足以建立三辰主题。
+- 修改 `Art/CARD_STYLE.md`，追加“三辰星仪”新版提案及完整待确认提示词：墨蓝至孔雀青卡身、暗金窄边、深色镶金标题带与类型牌、蓝黑正文区、统一低对比日月星底纹。首版说明保留为当前部署状态，新版明确标为尚未制作。
+- 新版须按用户既有要求先确认绘图提示词，再生成概念图。当前未调用绘图工具、未生成或删除图片，未修改代码、材质和游戏部署文件，也未提交Git。此次为文档调整，不重复构建或关闭游戏。
+
+### 9. 绘制三辰卡面概念样图
+
+- 用户确认上一步提示词并要求执行。使用内置imagegen，以当前天蟾香炉截图为编辑目标，定稿香炉插图与费用图标为参考，生成墨蓝孔雀青、窄金边、深色镶金标题与三辰正文底纹的完整卡面概念图。
+- 新增 `Art/CardStyles/2026-10-05/three-luminaries-card-concept.png`（1060×1484）；新增同目录 `THREE_LUMINARIES_CARD_CONCEPT.md`，保存实际调用提示词、输入角色、用途及初步检查；修改 `Art/CARD_STYLE.md`，状态改为已生成样图、待定稿，添加样图与说明入口；追加本日志。
+- 核对PNG尺寸，源生成文件与项目副本SHA256一致。视觉检查确认中文标题、类型、费用和两行正文正确，正文与底纹能够辨认；生成图改变了费用徽记、部分原画细节及图文比例，因此该图仅用于整体风格评审，正式接入沿用既有费用PNG和香炉卡图，并按游戏节点拆分适配。
+- 尚未获样图定稿指示，当前没有删除旧稿、修改运行时代码或材质、关闭游戏、编译部署或提交Git。当前游戏仍使用第一版卡身；本次新文件位于排除导出的Art目录。
+
+### 10. 将三辰样式统一接入全部自定义卡牌
+
+- 用户要求部署，并明确本Mod全部牌均使用新版。以已确认的概念图为依据，用原生Godot材质重建墨蓝孔雀青卡身、古金窄线、深色标题与类型牌、低对比三辰圆印；费用图标、数字、插图及文字仍独立显示，不将整张样图绑定到天蟾香炉或其他单牌。
+- 覆盖核对：19类均注册到 `NightWandererCardPool`，包括5初始、9奖励、4选择衍生及共舞；攻击5/技能11/能力2/状态1。普通和升级版共用，后续同池新牌自动沿用；原版碎屑、晕眩保留各自原版卡池样式。
+- 修改 `Characters/ThreeLuminariesCardStyle.cs`，新增标题和类型牌材质入口，缓存普通/罕见/稀有三档标题色带；修改 `Patches/CardPortraitBorderStylePatch.cs`，处理Reload、UpdateVisuals、UpdateTypePlaque、UpdateTypePlaqueSizeAndPosition四个入口，统一应用独立部件并保存/还原原材质及标签设置，保留升级绿色。修改 `Characters/NightWandererCardPool.cs` 的当前样式说明，卡身继续由PoolFrameMaterial全池绑定。
+- 改写 `SpiritualRealmWalker/shaders/three_luminaries_card_frame.gdshader`、`three_luminaries_portrait_border.gdshader`，重建色面与线纹，避免继续沿用旧灰框分区；底纹强度调低至0.17。新增 `three_luminaries_banner.gdshader`、`three_luminaries_type_plaque.gdshader` 及对应两份 `materials/*.tres`；Godot生成两份新shader的 `.uid`。原有两份材质资源路径不变。
+- 核对本机游戏IL发现类型牌宽度会在延迟更新中设为 `max(文字宽度+17,61)`，因此为每个类型牌缓存独立材质副本，并在尺寸更新后设置element_size，避免英语等长类型名称的金边偏位；不修改共享模板尺寸。新增入口后再次编译部署并复核初始化。
+- 新增 `Art/CardStyles/2026-10-05/three-luminaries-runtime-preview.png`（1360×510），Godot自动生成其 `.png.import`；本轮导入同时生成先前概念图的 `.png.import`。更新 `README.md`、`Art/ART_GUIDELINES.md`、`Art/CARD_STYLE.md`、`THREE_LUMINARIES_CARD_CONCEPT.md` 及本日志，记录范围、参数、文件用途与检查限制。
+- 新增被Git忽略的 `.godot/inspect_native_ui.gd`、`.godot/inspect_card_assets.gd`、`.godot/verify_full_card_style.gd`，只读核对原版布局/字体、挂载部署PCK并组合渲染，生成预览与检查日志。首次受限启动无法写用户日志，授权环境重试成功；导入仍有既有编辑器布局引用已删除旧刀图的提示。原版游戏文件未修改。
+- Godot导入、GPU材质渲染、Release编译、PCK导出及部署通过，0警告、0错误；检查三种牌型、三档稀有度与长短正文，无shader编译错误。无窗口短暂启动游戏验证，初始化和19类注册成功，进程自动退出；DLL源与部署SHA256一致。部署前未发现游戏运行，无需关闭。
+- 当前预览按原版控件位置组合，不是完整NCard游戏截图；实际对局、升级、选择牌及节点复用外观仍待游戏内验收。本次没有删除文件、调用新的绘图或提交Git。
+- 最终无窗口检查退出码0、注册数量19。日志另有Loadout模组 `NLoadoutPanelButton.UpdateRainbowColor` 在dummy渲染器中触发纹理空参数提示，以及无窗口退出的RID清理提示；已核对调用栈，不来自本次卡面补丁。没有将无窗口检查视为完整游戏视觉验收。
+
+### 11. 统一中文描述数字前后的连续排版
+
+- 用户要求数字两侧不留空格。检查发现 `SpiritualRealmWalker/localization/zhs/cards.json` 当前工作区已清理这些空格：例如“造成{Damage:diff()}点伤害。”、“给予所有敌人{EnemyPoison:diff()}层中毒。”；保留该已有修改，没有重复重写文件或改动卡牌数值。
+- 检查19类卡牌的description与smartDescription共38条，均无数字或动态变量两侧空格；同时检索其他中文本地化文件，未发现该类空格。英文排版及能量图标表达式保持不变。
+- 修改 `Art/CARD_STYLE.md`，记录后续中文数值连续排版规则；追加本日志。本次没有新增或删除项目文件，没有修改代码及美术。
+- 按既有授权关闭运行中的游戏，Release编译、PCK导出和部署成功，0警告、0错误。只读解析部署PCK，中文卡牌文本的全部键和值与源码一致；没有重复启动游戏或提交Git。
+
+### 12. 用整圈插图框突出罕见与稀有
+
+- 用户实测认可卡身，但反馈仅标题顶部色条不足以区分稀有度，要求包裹插图的整个边框采用对应颜色。保持卡身、星仪底纹和费用图标，罕见整圈插图框改为青色 `#73d5df`，稀有改为金色 `#f2bd65`；类型小牌同步着色，亮底使用深墨字，普通/基础/衍生/状态仍使用原有深色古金框和暖白类型字。
+- 修改 `Characters/ThreeLuminariesCardStyle.cs`，按普通/罕见/稀有缓存插图框材质，增加统一ConfigureRarity接口；修改 `Patches/CardPortraitBorderStylePatch.cs`，每次刷新同时设置框与类型牌颜色，保留每节点宽度参数、标题升级色和转其他卡池恢复逻辑，防止复用时串色。恢复逻辑识别两种类型字色，标题字体颜色始终不修改或恢复。
+- 修改 `SpiritualRealmWalker/shaders/three_luminaries_portrait_border.gdshader`、`three_luminaries_type_plaque.gdshader`，增加rarity_color/rarity_strength参数，在原alpha区域内对整个实体框和小牌着色，保留轻微材质明暗和透明插图窗口。不改牌型形状、数值、卡图或中文描述。
+- 更新 `README.md`、`Art/CARD_STYLE.md` 和本日志；重新生成并覆盖已有 `Art/CardStyles/2026-10-05/three-luminaries-runtime-preview.png`。修改被Git忽略的 `.godot/verify_full_card_style.gd`，同步稀有度颜色参数与前次连续数字排版，更新本地预览及检查日志。本次没有新增或删除项目文件，没有调用绘图工具或提交Git。
+- 按既有授权关闭运行中的游戏；Release编译、PCK导出部署成功，0警告、0错误。独立GPU加载部署PCK并渲染，确认普通保持原样、罕见青框、稀有金框及同色类型牌，无shader错误；编译和部署DLL的SHA256一致，Git差异格式检查通过。
+- 沿用当前四个Harmony入口，未重复启动游戏；预览按游戏控件组合，不代替完整NCard对局测试。实际游戏中红舞鞋、大罗星盘及升级/选择牌的外观仍待用户验收。
+
+### 13. 修正类型文字重影并统一顶部稀有度配色
+
+- 用户实测反馈：罕见/稀有类型文字出现重影，青色与金色略浅，顶部标题纹饰未随插图框完整着色。核对发现深墨类型字仍叠加2像素描边、右下偏移阴影及阴影描边，小尺寸笔画因此重叠。
+- 修改 `Patches/CardPortraitBorderStylePatch.cs`：罕见/稀有类型字取消描边，普通类型字改为1像素描边；全部类型字取消阴影、阴影偏移和阴影描边，恢复逻辑同步识别透明类型阴影。标题继续保留原有4像素描边和短阴影，标题升级绿色仍由游戏管理。
+- 修改 `Characters/ThreeLuminariesCardStyle.cs`：罕见主色由 `#73d5df` 加深为 `#4eb7c6`，稀有由 `#f2bd65` 加深为 `#dda74f`；插图框、类型牌及标题共用ConfigureRarity的颜色。新增完整标题着色参数，普通仍沿用原窄色带。
+- 修改 `SpiritualRealmWalker/shaders/three_luminaries_banner.gdshader`、`three_luminaries_portrait_border.gdshader`、`three_luminaries_type_plaque.gdshader`：罕见/稀有整个顶部标题带及两侧卷尾同步青/金配色，将浅色边缘高光混合降至0.14，避免配色显得过浅；保留原alpha轮廓、插图窗口和轻微材质明暗。
+- 更新 `README.md`、`Art/CARD_STYLE.md` 及本日志；覆盖已有 `Art/CardStyles/2026-10-05/three-luminaries-runtime-preview.png`（1360×510）。同步被Git忽略的 `.godot/verify_full_card_style.gd`，让稀有度、类型字和标题描边/阴影参数与代码一致，更新本地预览和检查日志。没有新增或删除项目文件，没有调用绘图工具或修改卡牌机制。
+- 执行自动Release编译、PCK导出和部署，0警告、0错误。独立GPU挂载部署资源，四种材质加载和渲染成功，退出码0、无shader错误；编译与部署DLL的SHA256一致，Git差异格式检查通过。只读审查确认bool参数、普通配色、升级绿色及节点复用恢复处理一致。
+- 当前预览按原版控件组合，不能替代完整NCard与实际对局显示；本次没有重复启动游戏或提交Git。最终游戏内的字形和配色仍待用户验收。
+
+### 14. 对齐参考图的原版稀有度材质与标题、类型文字
+
+- 用户继续反馈青色/金色与参考Mod不同，标题和类型字与普通牌的观感不一致。只读采样参考图并核对本机游戏PCK、NCard与MegaLabel的DLL逻辑，确认参考色正是原版稀有度材质；不同部件的明暗、折面来自各自纹理，不能只用单一hex平涂替代。
+- 原版 `card_banner_uncommon_mat.tres` 的h/s/v为1/1/1，`card_banner_rare_mat.tres` 为0.563/1.198/1.14，普通为1/0/0.85。NCard的标题带、插图框、类型牌均使用 `CardModel.BannerMaterial`；原版中文标题和类型字采用 `noto_sans_mono_cjksc_regular_shared.tres`，标题暖白及描边色随稀有度变化，类型字始终为同一黑色、透明度0.752941。
+- 修改 `Characters/ThreeLuminariesCardStyle.cs`，仅缓存三辰卡身、普通深色插图框和普通标题带，移除自定义青/金色与类型牌参数维护；修改 `Patches/CardPortraitBorderStylePatch.cs`，罕见/稀有等彩色部件直接使用该卡的原版材质，所有类型牌恢复原版材质（普通为灰色），彻底撤除标题、类型字的主题覆盖与恢复代码。字体、字色、稀有度描边、阴影及升级绿色交回原版；不修改任何共享原版材质参数或游戏文件。
+- 只读复核发现共享原版材质若进入原恢复缓存，会在“本池普通→本池罕见→其他池罕见”的复用路径中被误还原为旧普通色。新增ApplyNativeMaterial，在赋原版材质时清除旧缓存；仅自定义普通部件进入恢复追踪。修正后再次编译部署，并经复核确认该风险已闭合。
+- 未修改shader文件。旧 `three_luminaries_type_plaque.gdshader` 及同名材质保留，但当前不再加载；旧标题/插图框shader的自定义彩色分支也不再使用，普通深色分支继续工作。没有删除文件、修改卡图或卡牌机制，也没有调用绘图工具。
+- 更新 `README.md`、`Art/CARD_STYLE.md`、`Art/ART_GUIDELINES.md`、`Art/CardStyles/2026-10-05/THREE_LUMINARIES_CARD_CONCEPT.md` 及本日志；覆盖已有 `three-luminaries-runtime-preview.png`（1360×510）。修改被Git忽略的 `.godot/verify_full_card_style.gd`，预览同步原版材质、实际Noto中文字体和标题/类型样式，修正此前预览误用思源宋体的问题。
+- 新增被Git忽略的 `.godot/probe_native_typography.gd`、`.godot/NativeTypeProbe/NativeTypeProbe.csproj`、`Program.cs` 及检查输出/缓存，用于只读核对字体资源和游戏DLL逻辑；没有新增正式运行时资源。参考截图仅用于只读取色，没有复制到项目或修改图片。
+- 按既有自动部署流程执行Release编译、PCK导出及部署，最终0警告、0错误；独立GPU加载三种自定义材质、三档原版稀有度材质与实际中文字体，渲染成功、退出码0、无shader错误。编译与部署DLL的SHA256一致，Git差异格式检查通过。
+- 预览按原版控件组合，未重复启动游戏，不能代替完整NCard对局与节点复用实测；最终游戏内外观仍待用户验收。本次未提交Git。
+
+### 15. 游戏内验收通过并提交三辰卡面稳定版本
+
+- 用户确认卡面验收完成，并明确要求提交Git。记录当前三辰卡身、原版青/金稀有度材质、标题/类型字效果已获游戏内外观认可；不将其扩展为所有节点复用或对局路径的专项测试。
+- 本次修改 `README.md`、`Art/CARD_STYLE.md` 和本日志，补充验收完成状态。没有新增、删除文件或修改功能，没有重新关闭游戏、编译或部署；沿用上一项已通过的最终Release构建与部署结果。
+- 提交范围涵盖自上次提交以来的三辰卡面C#实现、材质/shader及UID、概念图/预览及导入说明、中文卡牌数值连续排版和对应文档。旧类型牌材质作为早期实现记录一并保存，当前仍不加载。
+- 提交前检查全部跟踪和新增文件，确认小说 `灵境行者.txt`、`.godot/`临时检查脚本与缓存仍被忽略，不进入提交。仅提交本地仓库，不推送远端。

@@ -8,6 +8,8 @@
 
 卡牌插图的原文核对、构图、手绘与配色要求见 [绘图规范](Art/ART_GUIDELINES.md)。
 
+三辰卡面已统一部署到夜游神整个卡池：墨蓝孔雀青卡身、古金细边和低对比日月星底纹。覆盖19类自定义牌及升级版本（初始、奖励、选择衍生牌和共舞），后续同池新牌自动沿用；罕见与稀有的整圈插图框、类型牌和完整顶部标题纹饰直接使用原版青色、金色材质，保留折面、高光和阴影，普通牌保留深色古金框及标题带。标题与类型字恢复原版字体、稀有度描边和字色；普通类型牌签恢复灰色，所有类型字采用统一深色。费用图标、独立插图、正文和标题升级绿色继续使用现有逻辑。配色、文件用途和验收范围见 [卡身与边框说明](Art/CARD_STYLE.md)。已通过部署资源渲染和此前游戏初始化检查；2026-10-05用户确认本次卡面游戏内验收完成。
+
 三辰能量图标已确认定稿并编译部署，费用图标74×74、文本小图标24×24，后者由前者直接缩小。卡牌、遗物和药水池共用 `SpiritualRealmWalker/images/ui/energy_big.png` 与 `energy_text.png`，代表太阴、星辰与太阳共用的能量；已验证部署PCK能加载两张纹理，游戏内显示待验收。资源及配色依据见 [图标说明](Art/Icons/2026-10-04/ENERGY_ICONS.md)。
 
 猫王音箱已接入带灰银色猫图案的手绘卡图：`SpiritualRealmWalker/images/cards/cat_king_speaker.png`，普通与升级版共用；游戏内显示待验收。
@@ -88,16 +90,20 @@ SpiritualRealmWalker/
 │  ├─ NightWandererCardPool.cs     夜游神卡牌池
 │  ├─ NightWandererRelicPool.cs    夜游神遗物池
 │  ├─ NightWandererPotionPool.cs   夜游神药水池
-│  └─ ThreeLuminariesEnergyIcons.cs 三辰共用费用及文本图标路径
+│  ├─ ThreeLuminariesEnergyIcons.cs 三辰共用费用及文本图标路径
+│  └─ ThreeLuminariesCardStyle.cs   三辰共用卡身与边框材质加载
 ├─ Relics/
 │  └─ CharacterCard.cs            角色卡、存档、战前恢复及试炼钩子
 ├─ Progression/NightWandererProgression.cs  等级、经验封顶和试炼分档
 ├─ Patches/EnergyCostLabelAlignmentPatch.cs  三辰费用数字的位置、大小与普通费用配色
+├─ Patches/CardPortraitBorderStylePatch.cs  专属插图边框材质及节点复用恢复
 ├─ Tests/Verify-Progression.ps1    成长边界与双语文本检查
 ├─ Tools/Extract-NovelItems.ps1    从小说原文提取并逐次编号道具信息
 ├─ ITEMS.md                        从小说原文提取的编号道具资料
 ├─ SpiritualRealmWalker/
 │  ├─ images/ui/                   正式能量图标（74×74与24×24）
+│  ├─ materials/                   三辰卡身、普通插图框和标题带材质
+│  ├─ shaders/                     墨蓝孔雀青、古金细线与三辰圆印绘制
 │  └─ localization/
 │     ├─ zhs/                      简体中文文本
 │     └─ eng/                      英文回退文本
