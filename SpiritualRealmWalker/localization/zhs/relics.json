@@ -1,5 +1,7 @@
 {
   "SPIRITUAL_REALM_WALKER_RELIC_CHARACTER_CARD.title": "角色卡",
-  "SPIRITUAL_REALM_WALKER_RELIC_CHARACTER_CARD.description": "元始天尊／夜游神\n等级：{Level}　经验：{Experience}/100\n太阴之力与能量共用点数，无持有上限。\n太阴之灵：每场战斗开始恢复{Healing}点生命。\n普通战斗胜利获得30经验，精英战斗获得50经验；最高3级满经验。\n第一幕晋升试炼：{Trial}档（0档不强化）。每档使首领最大生命提高10%，力量增加1；胜利补足至3级。",
-  "SPIRITUAL_REALM_WALKER_RELIC_CHARACTER_CARD.flavor": "姓名：元始天尊。职业：夜游神。"
+  "SPIRITUAL_REALM_WALKER_RELIC_CHARACTER_CARD.description": "姓名：元始天尊\n职业：夜游神\n等级：{Level}\n经验值：{Experience}%\n技能：[gold]太阴之灵[/gold]",
+  "SPIRITUAL_REALM_WALKER_RELIC_CHARACTER_CARD.flavor": "当日月星归位，沉眠于混沌中的诸神将会醒来，高居于神座的王，带领众神重启战争，世界进入新的轮回。",
+  "SPIRITUAL_REALM_WALKER_RELIC_CHARACTER_CARD.lunarSpiritTitle": "太阴之灵",
+  "SPIRITUAL_REALM_WALKER_RELIC_CHARACTER_CARD.lunarSpiritDescription": "每场战斗开始恢复3点生命。"
 }

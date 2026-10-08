@@ -8,7 +8,7 @@ namespace SpiritualRealmWalker.Characters;
 
 /// <summary>
 /// 可玩角色“元始天尊”，职业固定为夜游神。
-/// 当前阶段复用铁甲战士资源作为占位，只验证角色与内容注册链路。
+/// 选人背景与头像使用三辰本源插画，其余尚未制作的角色资源复用铁甲战士占位。
 /// </summary>
 [RegisterCharacter]
 public sealed class YuanshiTianzunCharacter
@@ -29,7 +29,15 @@ public sealed class YuanshiTianzunCharacter
     // 战斗特效暂沿用游戏现有的通用斩击，避免最小骨架依赖尚未制作的美术资源。
     public override List<string> GetArchitectAttackVfx() => ["vfx/vfx_attack_slash"];
 
-    // 缺失的角色选择、战斗、商店、篝火和音效资源均暂用铁甲战士占位。
+    // 专用场景抵消原版动画容器的额外缩放，按实际屏幕完整显示静态插画。
+    public override string? CustomCharacterSelectBgPath =>
+        "res://SpiritualRealmWalker/scenes/character_select/yuanshi_tianzun_bg.tscn";
+
+    // 选中与普通未选中状态复用同一头像，沿用游戏的调色与亮框。
+    public override string? CustomCharacterSelectIconPath =>
+        "res://SpiritualRealmWalker/images/character_select/yuanshi_tianzun_icon.png";
+
+    // 缺失的战斗、商店、篝火和音效资源暂用铁甲战士占位。
     public override string? PlaceholderCharacterId => "ironclad";
 
     // 第一版直接可选；剧情时间线与解锁条件以后单独设计。

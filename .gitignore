@@ -5,3 +5,5 @@ obj/
 .idea/
 *.user
 /灵境行者.txt
+/tool-settings.local.json
+__pycache__/

@@ -13,6 +13,9 @@ namespace SpiritualRealmWalker.Cards;
 [RegisterCard(typeof(NightWandererCardPool))]
 public sealed class RedDanceShoesPursuit : ModCardTemplate
 {
+    public override string CustomPortraitPath =>
+        "res://SpiritualRealmWalker/images/cards/red_dance_shoes_pursuit.png";
+
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
         [CardKeyword.Retain, CardKeyword.Exhaust];
 

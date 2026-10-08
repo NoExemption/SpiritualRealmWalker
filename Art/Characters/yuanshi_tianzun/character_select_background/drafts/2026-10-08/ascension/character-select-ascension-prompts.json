@@ -1,0 +1,25 @@
+{
+  "method": "built-in image_gen",
+  "date": "2026-10-08",
+  "reference": "Art/Characters/yuanshi_tianzun/character_select_background/character-select-background.png",
+  "assets": [
+    {
+      "prompt": "Edit the supplied illustration to produce an animation clean background plate. Remove ONLY the entire floating male character, every robe ribbon, every loose hair strand, both hands and boots, and the large black circular moon behind his head. Fill all the removed regions naturally with matching dark indigo/silver-blue painterly cosmic nebula and sparse tiny stars. There must be absolutely no person, no clothing, no black moon silhouette, no hands, no face, no human outline remaining. Keep the original 16:10 full canvas, viewpoint, original cloud lighting and far-right ancient tree. Keep the quiet dark left half unchanged. No new objects, planets, text, portal or bright focal point. This is a clean plate behind a moving character, so continuation of the existing clouds should be subtle and seamless; match original brushwork and deep restrained blue palette. Preserve all non-removed background regions as closely as possible.",
+      "native_size": [
+        1586,
+        992
+      ],
+      "project_file": "character-select-cloud-cleanplate-v1.png",
+      "usage": "fill newly exposed background; not replace entire original canvas"
+    },
+    {
+      "prompt": "Edit the supplied character selection illustration as an animation-production extraction, NOT a redesign. Keep the EXACT original 16:10 full canvas, exact camera, identical object locations and sizes. Extract ONLY the young Chinese god, all flowing star-patterned robes and sleeves, loose hair, both original hands with all fingers, both boots, and the pitch-black circular moon behind his head. Remove all surrounding nebula, stars, clouds and the tree to genuine transparency. Keep transparent holes between the free robe ribbons and hair strands. Do not include any surrounding smoke in this subject layer. Do not enlarge or center the subject; he stays on the right in the exact reference coordinates, with the entire left half transparent. The forehead sun stays golden. Do not repaint the face, alter anatomy or simplify the embroidery. Accurate alpha edges with no blue rectangular background. One complete transparent animation subject layer, retaining the full reference landscape 16:10 canvas and the original scale.",
+      "native_size": [
+        1586,
+        992
+      ],
+      "project_file": "character-select-extraction-reference-v1.png",
+      "usage": "silhouette prior only; generated RGB rejected because proportions changed"
+    }
+  ]
+}

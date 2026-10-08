@@ -1,12 +1,14 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using SpiritualRealmWalker.Characters;
 using SpiritualRealmWalker.Progression;
+using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -18,10 +20,24 @@ namespace SpiritualRealmWalker.Relics;
 public sealed class CharacterCard : ModRelicTemplate
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
+    public override RelicAssetProfile AssetProfile => new(
+        IconPath: "res://SpiritualRealmWalker/images/relics/character_card.png",
+        IconOutlinePath: "res://SpiritualRealmWalker/images/relics/character_card_outline.png",
+        BigIconPath: "res://SpiritualRealmWalker/images/relics/character_card_big.png");
     public override bool ShowCounter => true;
     public override int DisplayAmount => NightWandererProgression.Level(TotalExperience);
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
+        [DynamicVars["LunarSpirit"].CreateHoverTip()!];
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DynamicVar("Level", 1), new DynamicVar("Experience", 0), new DynamicVar("Healing", 3), new DynamicVar("Trial", 4)];
+        [
+            new DynamicVar("Level", 1),
+            new DynamicVar("Experience", 0),
+            new DynamicVar("Healing", 3),
+            new DynamicVar("Trial", 4),
+            new DynamicVar("LunarSpirit", 0).WithTooltip(
+                "relics", "SPIRITUAL_REALM_WALKER_RELIC_CHARACTER_CARD.lunarSpiritTitle",
+                "relics", "SPIRITUAL_REALM_WALKER_RELIC_CHARACTER_CARD.lunarSpiritDescription")
+        ];
 
     private int _totalExperience;
 

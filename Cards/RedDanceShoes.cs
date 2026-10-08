@@ -14,6 +14,9 @@ namespace SpiritualRealmWalker.Cards;
 [RegisterCard(typeof(NightWandererCardPool))]
 public sealed class RedDanceShoes : ModCardTemplate
 {
+    public override string CustomPortraitPath =>
+        "res://SpiritualRealmWalker/images/cards/red_dance_shoes.png";
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new DynamicVar("ItemLore", 0).WithTooltip(

@@ -1,0 +1,14 @@
+{
+  "loop_first_last_equal": true,
+  "preview_size": [
+    1280,
+    800
+  ],
+  "black_moon_max_channel_change": 0,
+  "face_max_channel_change": 0,
+  "left_hand_max_channel_change": 0,
+  "right_hand_max_channel_change": 0,
+  "left_text_area_max_channel_change": 0,
+  "frames_with_motion": 119,
+  "changed_pixels_at_3_seconds": 126202
+}

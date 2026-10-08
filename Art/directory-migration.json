@@ -1,0 +1,388 @@
+{
+  "date": "2026-10-08",
+  "operation": "asset-based Art directory reorganization",
+  "historical_paths": "from paths record locations before this migration; previous cleanup audit paths are preserved",
+  "files": [
+    {
+      "from": "Art/ART_GUIDELINES.md",
+      "to": "Art/ART_GUIDELINES.md",
+      "sha256_before": "EC88A1BED4B4F6807F175A8ECD8060BECCE5D0D9E2C5DA795397C64FF82B12FE"
+    },
+    {
+      "from": "Art/CARD_STYLE.md",
+      "to": "Art/UI/card_style/CARD_STYLE.md",
+      "sha256_before": "D67247F27A77B40DEAE565BDEA236646E9256D99C01BD2D564EF352D8C452D11"
+    },
+    {
+      "from": "Art/CardStyles/2026-10-05/three-luminaries-card-concept.png",
+      "to": "Art/UI/card_style/three-luminaries-card-concept.png",
+      "sha256_before": "4CD68CC3E7DEF9F9AB833141F6BD78547B1F792FDB59BCC6B6D27B3B8C7F7364"
+    },
+    {
+      "from": "Art/CardStyles/2026-10-05/three-luminaries-card-concept.png.import",
+      "to": "Art/UI/card_style/three-luminaries-card-concept.png.import",
+      "sha256_before": "59FABE673E4892A29349D18958D975DBF5E89205437C49CB680241618E749FD0"
+    },
+    {
+      "from": "Art/CardStyles/2026-10-05/three-luminaries-runtime-preview.png",
+      "to": "Art/UI/card_style/three-luminaries-runtime-preview.png",
+      "sha256_before": "61567F0CF8C5A1BAA8C31C2DBC726A252D095D46E0F5319B0A033CD036BD118C"
+    },
+    {
+      "from": "Art/CardStyles/2026-10-05/three-luminaries-runtime-preview.png.import",
+      "to": "Art/UI/card_style/three-luminaries-runtime-preview.png.import",
+      "sha256_before": "A4BB08BADCFB11CB1D6A19609C8A004240805473B0EA66225E8E99AF444DB811"
+    },
+    {
+      "from": "Art/CardStyles/2026-10-05/THREE_LUMINARIES_CARD_CONCEPT.md",
+      "to": "Art/UI/card_style/THREE_LUMINARIES_CARD_CONCEPT.md",
+      "sha256_before": "569B94DFB4B31D4559D0260C0856E61453794676EDC7D203BDE58375A9418D5D"
+    },
+    {
+      "from": "Art/Concepts/2026-09-30/bloodthirsty-blade.png",
+      "to": "Art/Cards/bloodthirsty_blade/bloodthirsty-blade.png",
+      "sha256_before": "3C096B9764D7DBBC6DB68C31A3C8E32CD24BD06BB85182F3D118421DA65F1E47"
+    },
+    {
+      "from": "Art/Concepts/2026-09-30/bloodthirsty-blade.png.import",
+      "to": "Art/Cards/bloodthirsty_blade/bloodthirsty-blade.png.import",
+      "sha256_before": "4E71FF3C1657BFA026C53E01E06BC326E97965D9935977AC856B2CA852C05A82"
+    },
+    {
+      "from": "Art/Concepts/2026-09-30/BLOODTHIRSTY_BLADE.md",
+      "to": "Art/Cards/bloodthirsty_blade/BLOODTHIRSTY_BLADE.md",
+      "sha256_before": "ECA71E35D2420B2544AEA2EEDB7981BA0FF74C6A9CFD9746DDE2E2859DFA9BB6"
+    },
+    {
+      "from": "Art/Concepts/2026-09-30/cat-king-speaker.png",
+      "to": "Art/Cards/cat_king_speaker/cat-king-speaker.png",
+      "sha256_before": "18D7CB993F50C9BD038592EFDB314CB051A4F55BAF6ED82B76CBC101CCF2551E"
+    },
+    {
+      "from": "Art/Concepts/2026-09-30/cat-king-speaker.png.import",
+      "to": "Art/Cards/cat_king_speaker/cat-king-speaker.png.import",
+      "sha256_before": "450DBFB3726D40A49DCC9167DEC6DA5FC1F53589E3E8DBCFCDFB57C5C8AEC23C"
+    },
+    {
+      "from": "Art/Concepts/2026-09-30/CAT_KING_SPEAKER.md",
+      "to": "Art/Cards/cat_king_speaker/CAT_KING_SPEAKER.md",
+      "sha256_before": "543BB3E32B66F387F293401A08F7F93A0EA3DF46C19F250142F6F9039655A6FC"
+    },
+    {
+      "from": "Art/Concepts/2026-09-30/heavenly-toad-incense-burner.png",
+      "to": "Art/Cards/heavenly_toad_incense_burner/heavenly-toad-incense-burner.png",
+      "sha256_before": "3663C75EC1C584114B974FEA45C6BF7CB86E6D1C029CD5EC402CE2CCB8147A26"
+    },
+    {
+      "from": "Art/Concepts/2026-09-30/heavenly-toad-incense-burner.png.import",
+      "to": "Art/Cards/heavenly_toad_incense_burner/heavenly-toad-incense-burner.png.import",
+      "sha256_before": "EBB1F7890E990AA0F18FC0A8E9ED3C3E9DEBDB64EB123E6DCF4C3B40D031F742"
+    },
+    {
+      "from": "Art/Concepts/2026-09-30/HEAVENLY_TOAD_INCENSE_BURNER.md",
+      "to": "Art/Cards/heavenly_toad_incense_burner/HEAVENLY_TOAD_INCENSE_BURNER.md",
+      "sha256_before": "1DAA2D8EB18138DA2BDF5B8869C16D4CF594219A9C43E240FD97B4F0E5FFE917"
+    },
+    {
+      "from": "Art/Concepts/2026-09-30/steadfast-orb.png",
+      "to": "Art/Cards/steadfast_orb/steadfast-orb.png",
+      "sha256_before": "6DE974265D39F0D0ECD06EA5FB7BEC9FF287D347D95144EB6CE1C7CE62329D05"
+    },
+    {
+      "from": "Art/Concepts/2026-09-30/steadfast-orb.png.import",
+      "to": "Art/Cards/steadfast_orb/steadfast-orb.png.import",
+      "sha256_before": "B85DE25D5F870A4D919736C0B4A398BC843031A274A7E96CB2B20322737C46AD"
+    },
+    {
+      "from": "Art/Concepts/2026-09-30/STEADFAST_ORB.md",
+      "to": "Art/Cards/steadfast_orb/STEADFAST_ORB.md",
+      "sha256_before": "990B65EF54D284F18789707096C5706EF4166DD1383746AEB31163C806CD0F61"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/dance-together.png",
+      "to": "Art/Cards/dance_together/dance-together.png",
+      "sha256_before": "53637DCAFEC389D40AFFEE1FAD97D90260C41A6EB14CDCE047674B9D9055E41C"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/dance-together.png.import",
+      "to": "Art/Cards/dance_together/dance-together.png.import",
+      "sha256_before": "A1EB987B1556B0BA3E9CA9917293CDD86DF6E85D211399850761E6AFA3D2F755"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/DANCE_TOGETHER.md",
+      "to": "Art/Cards/dance_together/DANCE_TOGETHER.md",
+      "sha256_before": "D078347C8FAFCADB65DAEEC7ABA55EDF64650BF679A9B78D3F9AEE1471D37251"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/ever-burning-candle.png",
+      "to": "Art/Cards/ever_burning_candle/ever-burning-candle.png",
+      "sha256_before": "7C6AB909128D7A0C8F342F12CD50582C6ECEBFBD416E8C4113593D8CF2F9EFFD"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/ever-burning-candle.png.import",
+      "to": "Art/Cards/ever_burning_candle/ever-burning-candle.png.import",
+      "sha256_before": "8316F4ABE8C287A75E000F07C3B9DEB39D267F42EDA67B00E24E6BB52A016F4A"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/EVER_BURNING_CANDLE.md",
+      "to": "Art/Cards/ever_burning_candle/EVER_BURNING_CANDLE.md",
+      "sha256_before": "FD784CDF11C6FE9C2ED7828EBFC129A5012D825382CA615EEE4911D2BE60EBCB"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/red-dance-shoes-pursuit.png",
+      "to": "Art/Cards/red_dance_shoes/red-dance-shoes-pursuit.png",
+      "sha256_before": "CA7D8A93B9BDBA0BF0311808D0B65D04E19EEDB6DF4EAB3A8543603E27EF98F2"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/red-dance-shoes-pursuit.png.import",
+      "to": "Art/Cards/red_dance_shoes/red-dance-shoes-pursuit.png.import",
+      "sha256_before": "978C2159368913BB745416174045F4297D5F9B5ACBCD588E7DBA412688AB3DA8"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/red-dance-shoes-wear.png",
+      "to": "Art/Cards/red_dance_shoes/red-dance-shoes-wear.png",
+      "sha256_before": "8EDB860945523DF3F8A81AF2F61F54308C01A687DCA473C3919738BB6075B833"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/red-dance-shoes-wear.png.import",
+      "to": "Art/Cards/red_dance_shoes/red-dance-shoes-wear.png.import",
+      "sha256_before": "ABC8E64ED2FEEE889BE3F051C4A7E78E8410E42CB752D3CA02A62106C81C81E7"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/red-dance-shoes.png",
+      "to": "Art/Cards/red_dance_shoes/red-dance-shoes.png",
+      "sha256_before": "3DA598483B0BA6EDDB820CFCA443391F50FAE289679425B1ED68BB75E45307DB"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/red-dance-shoes.png.import",
+      "to": "Art/Cards/red_dance_shoes/red-dance-shoes.png.import",
+      "sha256_before": "65FA73CAF0DCEDB4828C2B786492E1F40059365E859D37FA70363630BEA1FDAB"
+    },
+    {
+      "from": "Art/Concepts/2026-10-06/RED_DANCE_SHOES.md",
+      "to": "Art/Cards/red_dance_shoes/RED_DANCE_SHOES.md",
+      "sha256_before": "FE2CEF2A38B79F708CD6E9EBF1A34DAD38B8ABEB0A91B33C877455B2F2989BEE"
+    },
+    {
+      "from": "Art/Concepts/2026-10-07/character-card-big.png",
+      "to": "Art/Relics/character_card/character-card-big.png",
+      "sha256_before": "C6B04B87DF4D218A73AC1452F670CEA1F58FDE158C9ED152D312FE100B7C1FAB"
+    },
+    {
+      "from": "Art/Concepts/2026-10-07/character-card-big.png.import",
+      "to": "Art/Relics/character_card/character-card-big.png.import",
+      "sha256_before": "719C48D37DB3A9FAE865E8B1B36A4F7A3B8BFA9E518873FB6C1DCCF0AA24E207"
+    },
+    {
+      "from": "Art/Concepts/2026-10-07/character-card-icon.png",
+      "to": "Art/Relics/character_card/character-card-icon.png",
+      "sha256_before": "AC2158392315735CB5CE75BF8F40BAA20AF15A27C8BFF37B719E59C525F0258C"
+    },
+    {
+      "from": "Art/Concepts/2026-10-07/character-card-icon.png.import",
+      "to": "Art/Relics/character_card/character-card-icon.png.import",
+      "sha256_before": "1C94F1A4F8889259173EC57B78C9EAC37E368A460A2B509BB52A8928285B6542"
+    },
+    {
+      "from": "Art/Concepts/2026-10-07/character-card.png",
+      "to": "Art/Relics/character_card/character-card.png",
+      "sha256_before": "98D2FAA129FCCC43E047646664C7946F09CE85D03D21D590A47EA70144522BCD"
+    },
+    {
+      "from": "Art/Concepts/2026-10-07/character-card.png.import",
+      "to": "Art/Relics/character_card/character-card.png.import",
+      "sha256_before": "9C5FBF9AC90E61B7E14E2613FA9C8038E8F106FED366A8CAD069CEB440036A12"
+    },
+    {
+      "from": "Art/Concepts/2026-10-07/CHARACTER_CARD.md",
+      "to": "Art/Relics/character_card/CHARACTER_CARD.md",
+      "sha256_before": "D346858A1362F4664BDAA06D9B94FCF1A5E850CDC935E5F3B8BEA9C5BEB84894"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-ascension-detail.gif",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/ascension/previews/character-select-ascension-detail.gif",
+      "sha256_before": "941218C5C1A142E096C346FEB477AFC7781844AC951D393D48ADDF688E5B8BCE"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-ascension-preview.gif",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/ascension/previews/character-select-ascension-preview.gif",
+      "sha256_before": "F36E40FDC8DA9855CE7BA182794312BEA5508581EB1718A537396E21A49B2F6D"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-ascension-preview.webp",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/ascension/previews/character-select-ascension-preview.webp",
+      "sha256_before": "57E044CDC6D03C219D1E3B81ABF291C8936A8BB45769ED5222AA6E9AEE22F270"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-ascension-prompts.json",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/ascension/character-select-ascension-prompts.json",
+      "sha256_before": "AC7A31E2D66B81D88B2BEA81AA7EC95A950EF9E0E1822ADC635EDE7C1004DBEB"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-ascension-validation.json",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/ascension/character-select-ascension-validation.json",
+      "sha256_before": "08CF0ED10488157F6B6613F5C9367350E64D7F5A523C67B631A8B4A7334C03AE"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-background.png",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/character-select-background.png",
+      "sha256_before": "F9B4ADE3AA3EEC1EBCDDC5FBF656089D6E47F85B0D8590AEB5690534D89E785C"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-background.png.import",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/character-select-background.png.import",
+      "sha256_before": "C9120CBEBB551E6A7B5F58EE878222FD95A4A0BF750D007789A0968D9336FDC4"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-cloud-cleanplate-v1.png",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/ascension/character-select-cloud-cleanplate-v1.png",
+      "sha256_before": "C7DC1211C197CB774D71DE2048DC2D9CE78D5A6A92AF3AA61B3DE4276C8FB834"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-cloud-cleanplate-v1.png.import",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/ascension/character-select-cloud-cleanplate-v1.png.import",
+      "sha256_before": "782D701A24581DFCB2262ABABB6E9D91C75998074B855EC8DF81D6687E6468B7"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-extraction-reference-v1.png",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/ascension/character-select-extraction-reference-v1.png",
+      "sha256_before": "C040B9945003D99CD337DBF9665285999AFC7B9AE2B8A2E1B8B306CF923AB613"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-extraction-reference-v1.png.import",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/ascension/character-select-extraction-reference-v1.png.import",
+      "sha256_before": "E362F70DC6960289368068EC7D2F63E5DF63A4683BCAF0835A88E088AAC5C6DF"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-idle-detail-v1.gif",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/idle/previews/character-select-idle-detail-v1.gif",
+      "sha256_before": "00FADCED89DF89998120618067C8BC0EA8049AAC34D307DFAF98E4F42ED29B5E"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-idle-detail.gif",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/idle/previews/character-select-idle-detail.gif",
+      "sha256_before": "551F50EC89E931DF7961F563F0700769C6D96608EE06B5DED116187551064E89"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-idle-preview-v1.gif",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/idle/previews/character-select-idle-preview-v1.gif",
+      "sha256_before": "D7D4BCF1ACD1FF863FCEA4C61CEA18823A61BFB7B1198AE2CA690685D1275A53"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-idle-preview.gif",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/idle/previews/character-select-idle-preview.gif",
+      "sha256_before": "37B3E6536C5E59912F58FF6111E6735B03BB15E35362FA8D3778ED71966777FD"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-idle-validation.json",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/idle/character-select-idle-validation.json",
+      "sha256_before": "0A5C4F1C0B83D770A112968B884C39BE09E45C292856A5EDFFCF80812376E6A7"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-portrait-icon.png",
+      "to": "Art/Characters/yuanshi_tianzun/portrait/character-select-portrait-icon.png",
+      "sha256_before": "F5F7433F73291EBDCE39A8BFDB0258A89DCBED87BF95A7A6982CFC7C1A5D146B"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-portrait-icon.png.import",
+      "to": "Art/Characters/yuanshi_tianzun/portrait/character-select-portrait-icon.png.import",
+      "sha256_before": "E2821420FC6B65844437C0632CA291775370E8D73711601F391F8B102442C52A"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-portrait.png",
+      "to": "Art/Characters/yuanshi_tianzun/portrait/character-select-portrait.png",
+      "sha256_before": "5965D352356768B8E546EF5C06E4DA366621DFE6A2C9ED8A4CC5367A9D39A816"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/character-select-portrait.png.import",
+      "to": "Art/Characters/yuanshi_tianzun/portrait/character-select-portrait.png.import",
+      "sha256_before": "93DDECF13197B992FF21C0931B13E565E32C5153B1BDB36CF46C5EAD72545AAC"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/CHARACTER_SELECT_ASCENSION.md",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/ascension/CHARACTER_SELECT_ASCENSION.md",
+      "sha256_before": "6793E6DC30EF3CBB80F4DC998EBB7D56F27C9CF87A9AAEBF59279DBAE3ADDD86"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/CHARACTER_SELECT_BACKGROUND.md",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/CHARACTER_SELECT_BACKGROUND.md",
+      "sha256_before": "D91EA5CB4A2B8878BFBB992E9844DD6EBA3268159E6BFB64729DA92A3901D19F"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/CHARACTER_SELECT_IDLE.md",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/drafts/2026-10-08/idle/CHARACTER_SELECT_IDLE.md",
+      "sha256_before": "B8832C9633268979239F070B654AA14A2DE40D0913C9F0E5D0F84A25F9BC33D9"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/CHARACTER_SELECT_PORTRAIT.md",
+      "to": "Art/Characters/yuanshi_tianzun/portrait/CHARACTER_SELECT_PORTRAIT.md",
+      "sha256_before": "5FC59CB4157836D19745F2EA90C90E69868D1A0D6C4CE386A45FEAFBF6DB0155"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/reconstruction/assembly-report.json",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/reconstruction/assembly-report.json",
+      "sha256_before": "25067EBFF742DE1BB700B3FFA81263A109D92FE95DE89943546B95EDB2192F24"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/reconstruction/crop-manifest.json",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/reconstruction/crop-manifest.json",
+      "sha256_before": "F2522E4110BDFA2472F3201DA9B808BCAF9EAF4322431761328947DC63A8473A"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/reconstruction/finalization-cleanup.json",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/reconstruction/finalization-cleanup.json",
+      "sha256_before": "E3B9B63F4EA96D8086A56727487C07A9909FE09E8F1B58F346A9F79C2937442E"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/reconstruction/generation-records.json",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/reconstruction/generation-records.json",
+      "sha256_before": "19AF972D75D515518C8B5D206980CAE2D58935257D468DD6782FADCAE3108163"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/reconstruction/hand-corrections.json",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/reconstruction/hand-corrections.json",
+      "sha256_before": "EA093D64CC8032384C5CBC9DBE2B5B28E7C4AEEADF3A1C50FDC6F0BB59927EAA"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/reconstruction/hand-validation.json",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/reconstruction/hand-validation.json",
+      "sha256_before": "A00DA7ADB6860AB38C12D7B46B230B513AB79BF0C101C3DD3E07D02EA700E100"
+    },
+    {
+      "from": "Art/Concepts/2026-10-08/reconstruction/README.md",
+      "to": "Art/Characters/yuanshi_tianzun/character_select_background/reconstruction/README.md",
+      "sha256_before": "642B3C2BC524A79C1D61021B314B64627091112732FE7E69452117F25CDEB1F1"
+    },
+    {
+      "from": "Art/Icons/2026-10-04/energy_big.png",
+      "to": "Art/UI/energy_icons/energy_big.png",
+      "sha256_before": "EDB6D256DFDF2B0158B74166D2F92B6A724F6610148D028B290E39EAB0ABFE57"
+    },
+    {
+      "from": "Art/Icons/2026-10-04/energy_big.png.import",
+      "to": "Art/UI/energy_icons/energy_big.png.import",
+      "sha256_before": "475F8FD77E09CC394ABA2CEB091337B4A124BD858A8C61C52BCCCB87D5F39328"
+    },
+    {
+      "from": "Art/Icons/2026-10-04/ENERGY_ICONS.md",
+      "to": "Art/UI/energy_icons/ENERGY_ICONS.md",
+      "sha256_before": "4FFF760A8D87FB0CED318106B0203302D6DBBAFD6C6A76AB984113FCC3C25A8A"
+    },
+    {
+      "from": "Art/Icons/2026-10-04/energy_text.png",
+      "to": "Art/UI/energy_icons/energy_text.png",
+      "sha256_before": "6B41C5BCB67BAD0CA10F410463573C5A27F4726836A6F696183D822A6854DC80"
+    },
+    {
+      "from": "Art/Icons/2026-10-04/energy_text.png.import",
+      "to": "Art/UI/energy_icons/energy_text.png.import",
+      "sha256_before": "875CCFA4C6E4EB5BAF47637882F5360A9BC40A8242AAB31C698C0CA3BD3BA22E"
+    }
+  ],
+  "validation": {
+    "files_preserved": 75,
+    "media_hashes_unchanged": 28,
+    "runtime_and_deployment_hashes_unchanged": 69,
+    "local_markdown_links_valid": 45
+  }
+}

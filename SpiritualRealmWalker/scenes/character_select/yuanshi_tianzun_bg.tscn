@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://SpiritualRealmWalker/scenes/character_select/yuanshi_tianzun_bg.gd" id="1_layout"]
+[ext_resource type="Texture2D" path="res://SpiritualRealmWalker/images/character_select/yuanshi_tianzun_bg.png" id="2_art"]
+[ext_resource type="Shader" path="res://SpiritualRealmWalker/scenes/character_select/yuanshi_tianzun_ascension.gdshader" id="3_idle"]
+[ext_resource type="Texture2D" path="res://SpiritualRealmWalker/images/character_select/yuanshi_tianzun_cloud_fill.png" id="4_fill"]
+[ext_resource type="Texture2D" path="res://SpiritualRealmWalker/images/character_select/yuanshi_tianzun_subject_mask.png" id="5_mask"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_idle"]
+shader = ExtResource("3_idle")
+shader_parameter/animation_time = 0.0
+shader_parameter/motion_strength = 1.0
+shader_parameter/cloud_fill = ExtResource("4_fill")
+shader_parameter/original_art = ExtResource("2_art")
+shader_parameter/subject_mask = ExtResource("5_mask")
+
+[node name="YuanshiTianzunBackground" type="Control"]
+layout_mode = 0
+mouse_filter = 2
+script = ExtResource("1_layout")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.03529412, 0.06666667, 0.1254902, 1)
+
+[node name="Illustration" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_idle")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_art")
+expand_mode = 1
+stretch_mode = 5

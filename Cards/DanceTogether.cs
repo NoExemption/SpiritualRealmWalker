@@ -13,6 +13,9 @@ namespace SpiritualRealmWalker.Cards;
 [RegisterCard(typeof(NightWandererCardPool))]
 public sealed class DanceTogether : ModCardTemplate
 {
+    public override string CustomPortraitPath =>
+        "res://SpiritualRealmWalker/images/cards/dance_together.png";
+
     public override int MaxUpgradeLevel => 0;
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 

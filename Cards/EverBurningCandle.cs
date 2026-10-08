@@ -14,6 +14,9 @@ namespace SpiritualRealmWalker.Cards;
 [RegisterCard(typeof(NightWandererCardPool))]
 public sealed class EverBurningCandle : ModCardTemplate
 {
+    public override string CustomPortraitPath =>
+        "res://SpiritualRealmWalker/images/cards/ever_burning_candle.png";
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [

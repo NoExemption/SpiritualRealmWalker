@@ -1,0 +1,14 @@
+{
+  "loop_first_last_equal": true,
+  "left_text_area_max_channel_change": 0,
+  "figure_source": "unchanged finalized 3840x2400 original RGB",
+  "body_float_pixels_at_1280x800": 2,
+  "protected_features_follow_rigid_float": {
+    "face": 0,
+    "left_palm": 0,
+    "right_palm": 0,
+    "black_moon_interior": 0
+  },
+  "inward_flow": "dual-phase source advection away from chest, producing visible inward movement",
+  "flow_cloud_changed_pixels": 26613
+}
